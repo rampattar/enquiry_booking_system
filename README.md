@@ -106,8 +106,8 @@ The client will start on `http://localhost:3000`.
 
 - [x] **Phase 1:** Project Setup, Folder Structure, Dependencies & Tailwind Config
 - [x] **Phase 2:** Website UI, Layouts & Public Pages (Home, About, Therapies, Policies, Contact, Book a Session)
-- [ ] **Phase 3:** Patient Enquiry Form with Backend API Integration & Validation
-- [ ] **Phase 4:** MongoDB Models, Enquiry Controller & REST APIs
+- [x] **Phase 3:** Patient Enquiry Form with Backend API Integration & Validation
+- [x] **Phase 4:** MongoDB Schemas, Enquiry Service, Rate Limiting & REST APIs
 - [ ] **Phase 5:** Spreadsheet Sync Service with Idempotency & Retry Mechanism
 - [ ] **Phase 6:** Secure JWT Authentication, Role-based Middleware & Admin Seed Script
 - [ ] **Phase 7:** Admin & Telecaller Dashboard with Search, Filters & Call Logs
