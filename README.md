@@ -105,8 +105,8 @@ The client will start on `http://localhost:3000`.
 ## 🧭 Phased Implementation Roadmap
 
 - [x] **Phase 1:** Project Setup, Folder Structure, Dependencies & Tailwind Config
-- [ ] **Phase 2:** Website UI, Layouts & Public Pages (Home, About, Therapies, Policies, Contact)
-- [ ] **Phase 3:** Patient Enquiry Form with Client-Side Validation & Mode Selection
+- [x] **Phase 2:** Website UI, Layouts & Public Pages (Home, About, Therapies, Policies, Contact, Book a Session)
+- [ ] **Phase 3:** Patient Enquiry Form with Backend API Integration & Validation
 - [ ] **Phase 4:** MongoDB Models, Enquiry Controller & REST APIs
 - [ ] **Phase 5:** Spreadsheet Sync Service with Idempotency & Retry Mechanism
 - [ ] **Phase 6:** Secure JWT Authentication, Role-based Middleware & Admin Seed Script
