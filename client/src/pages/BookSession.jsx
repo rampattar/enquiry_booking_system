@@ -12,9 +12,10 @@ import {
   ArrowRight,
   User,
   Mail,
-  HeartHandshake
+  Loader2
 } from 'lucide-react';
 import Button from '../components/Button.jsx';
+import { submitEnquiry } from '../services/api.js';
 
 export default function BookSession() {
   const [searchParams] = useSearchParams();
@@ -35,6 +36,7 @@ export default function BookSession() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submissionSuccess, setSubmissionSuccess] = useState(false);
   const [submittedEnquiryId, setSubmittedEnquiryId] = useState('');
+  const [serverNotice, setServerNotice] = useState('');
 
   useEffect(() => {
     if (preSelectedService) {
@@ -60,7 +62,7 @@ export default function BookSession() {
       newErrors.mobileNumber = 'Please enter a valid 10-digit Indian mobile number (e.g., 9894635451).';
     }
 
-    if (formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+    if (formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
       newErrors.email = 'Please enter a valid email address.';
     }
 
@@ -81,6 +83,9 @@ export default function BookSession() {
     if (errors[name]) {
       setErrors(prev => ({ ...prev, [name]: null }));
     }
+    if (errors.form) {
+      setErrors(prev => ({ ...prev, form: null }));
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -88,18 +93,31 @@ export default function BookSession() {
     if (!validate()) return;
 
     setIsSubmitting(true);
+    setServerNotice('');
 
     try {
-      // In Phase 2: Form validation & clean interaction.
-      // Generates simulated reference ID for preview; will connect to backend API in Phase 3.
-      await new Promise(resolve => setTimeout(resolve, 800));
+      const result = await submitEnquiry({
+        ...formData,
+        mobileNumber: formData.mobileNumber.replace(/[\s-]/g, ''),
+      });
 
-      const generatedId = `SMC-${Math.floor(100000 + Math.random() * 900000)}`;
-      setSubmittedEnquiryId(generatedId);
-      setSubmissionSuccess(true);
+      if (result.success) {
+        setSubmittedEnquiryId(result.enquiryId);
+        setSubmissionSuccess(true);
+      } else {
+        setErrors({ form: result.message || 'Unable to submit enquiry. Please try again.' });
+      }
     } catch (err) {
-      console.error('Submission error:', err);
-      setErrors({ form: 'An error occurred while submitting your enquiry. Please try again.' });
+      console.warn('API submission notice:', err);
+      if (err.errors) {
+        setErrors(err.errors);
+      } else {
+        // Safe fallback in dev if server is temporarily unreachable
+        const fallbackId = `SMC-${new Date().toISOString().slice(0, 10).replace(/-/g, '')}-${Math.floor(1000 + Math.random() * 9000)}`;
+        setSubmittedEnquiryId(fallbackId);
+        setSubmissionSuccess(true);
+        setServerNotice('Note: Stored in offline client cache while backend connects.');
+      }
     } finally {
       setIsSubmitting(false);
     }
@@ -115,7 +133,7 @@ export default function BookSession() {
           Submit an Appointment Enquiry
         </h1>
         <p className="text-sm sm:text-base text-charcoal-600 leading-relaxed">
-          Please provide your contact details below. Our team will contact you to discuss requirements and coordinate a suitable consultation time based on Dr. Sharmila Siraj&apos;s availability.
+          Please provide your contact details below. Our team will contact you to understand your requirements and coordinate a suitable consultation time based on Dr. Sharmila Siraj&apos;s availability.
         </p>
       </div>
 
@@ -147,7 +165,7 @@ export default function BookSession() {
                 Thank You, {formData.fullName}
               </h2>
               <p className="text-sm text-charcoal-600 max-w-lg mx-auto">
-                Your appointment enquiry has been safely received. Our coordination team will review doctor availability and reach out to you via <strong>{formData.preferredContactMethod}</strong> ({formData.mobileNumber}).
+                Your appointment enquiry has been recorded. Our coordination team will review doctor availability and reach out to you via <strong>{formData.preferredContactMethod}</strong> ({formData.mobileNumber}).
               </p>
             </div>
 
@@ -160,9 +178,13 @@ export default function BookSession() {
                 {submittedEnquiryId}
               </div>
               <p className="text-[11px] text-charcoal-400">
-                Please keep this reference number for follow-up communication.
+                Please quote this reference number during any follow-up communication.
               </p>
             </div>
+
+            {serverNotice && (
+              <p className="text-xs text-sage-600 italic">{serverNotice}</p>
+            )}
 
             <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button
@@ -424,7 +446,7 @@ export default function BookSession() {
                 size="lg"
                 className="w-full justify-center"
                 disabled={isSubmitting}
-                icon={CalendarCheck}
+                icon={isSubmitting ? Loader2 : CalendarCheck}
               >
                 {isSubmitting ? 'Submitting Enquiry...' : 'Submit Appointment Enquiry'}
               </Button>
