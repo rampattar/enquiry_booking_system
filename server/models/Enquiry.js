@@ -183,3 +183,4 @@ enquirySchema.statics.generateEnquiryId = async function () {
 const Enquiry = mongoose.models.Enquiry || mongoose.model('Enquiry', enquirySchema);
 
 export default Enquiry;
+

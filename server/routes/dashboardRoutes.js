@@ -6,3 +6,4 @@ const router = express.Router();
 router.get('/summary', getSummary);
 
 export default router;
+

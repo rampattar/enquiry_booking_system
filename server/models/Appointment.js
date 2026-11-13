@@ -71,3 +71,4 @@ appointmentSchema.statics.generateAppointmentId = async function () {
 const Appointment = mongoose.models.Appointment || mongoose.model('Appointment', appointmentSchema);
 
 export default Appointment;
+

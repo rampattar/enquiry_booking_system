@@ -1,4 +1,21 @@
 import mongoose from 'mongoose';
+import dns from 'dns';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import dotenv from 'dotenv';
+
+// Ensure DNS resolution on Windows resolves MongoDB Atlas SRV records reliably
+try {
+  dns.setServers(['8.8.8.8', '8.8.4.4', '1.1.1.1']);
+} catch (e) {
+  // Ignore in environments where setting DNS is restricted
+}
+
+// Ensure .env is loaded regardless of execution working directory
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+dotenv.config({ path: path.resolve(__dirname, '../.env') });
+dotenv.config();
 
 let isConnected = false;
 
@@ -17,16 +34,16 @@ export const connectDB = async () => {
 
   try {
     const conn = await mongoose.connect(mongoURI, {
-      serverSelectionTimeoutMS: 5000, // Timeout fast if URI is unreachable
+      dbName: 'sharmila_mindcare',
+      serverSelectionTimeoutMS: 8000,
     });
 
     isConnected = true;
     console.log(`\n🍃 [MongoDB Connected] Host: ${conn.connection.host} | DB: ${conn.connection.name}\n`);
     return true;
   } catch (error) {
-    console.error(`\n❌ [MongoDB Connection Error] Could not connect to: ${mongoURI}`);
-    console.error(`Reason: ${error.message}`);
-    console.warn('⚠️ Server will continue operating with safe local fallback until MongoDB Atlas is reachable.\n');
+    console.error(`\n❌ [MongoDB Connection Error] Could not connect to MongoDB: ${error.message}`);
+    console.warn('⚠️ Server will operate with safe local fallback buffer until MongoDB Atlas is reachable.\n');
     return false;
   }
 };

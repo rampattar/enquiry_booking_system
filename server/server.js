@@ -4,14 +4,27 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import dotenv from 'dotenv';
 import rateLimit from 'express-rate-limit';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import dns from 'dns';
+
+// Fix Node.js DNS resolution on Windows for MongoDB Atlas SRV connection
+try {
+  dns.setServers(['8.8.8.8', '8.8.4.4', '1.1.1.1']);
+} catch (e) {
+  // Ignore
+}
+
+// Load environment variables reliably from server/.env or root .env
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+dotenv.config({ path: path.resolve(__dirname, '.env') });
+dotenv.config();
 
 import { connectDB, getDBStatus } from './config/db.js';
 import enquiryRoutes from './routes/enquiryRoutes.js';
 import publicRoutes from './routes/publicRoutes.js';
 import dashboardRoutes from './routes/dashboardRoutes.js';
-
-// Load environment variables
-dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -55,7 +68,8 @@ app.get('/api/health', (req, res) => {
     database: {
       connected: dbStatus.isConnected,
       host: dbStatus.host,
-      mode: dbStatus.isConnected ? 'MongoDB Active' : 'Memory Buffered',
+      name: dbStatus.dbName,
+      mode: dbStatus.isConnected ? 'MongoDB Atlas Active' : 'Memory Buffered',
     },
   });
 });
@@ -93,10 +107,25 @@ app.use((err, req, res, next) => {
   });
 });
 
-// Start Server
-app.listen(PORT, () => {
-  console.log(`[Sharmila MindCare Server] Running on http://localhost:${PORT}`);
-  console.log(`[Health check available at] http://localhost:${PORT}/api/health`);
-});
+// Start Server with Graceful Port Fallback
+const defaultPort = parseInt(process.env.PORT, 10) || 5001;
+
+function startServer(portToTry) {
+  const server = app.listen(portToTry, () => {
+    console.log(`\n🚀 [Sharmila MindCare Server] Running on http://localhost:${portToTry}`);
+    console.log(`🩺 [Health check available at] http://localhost:${portToTry}/api/health\n`);
+  });
+
+  server.on('error', (err) => {
+    if (err.code === 'EADDRINUSE') {
+      console.warn(`⚠️ [Port in use] Port ${portToTry} is occupied. Retrying on port ${portToTry + 1}...`);
+      startServer(portToTry + 1);
+    } else {
+      console.error('Server error:', err);
+    }
+  });
+}
+
+startServer(defaultPort);
 
 export default app;

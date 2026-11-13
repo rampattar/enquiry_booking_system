@@ -7,3 +7,4 @@ router.get('/profile', getDoctorProfile);
 router.get('/services', getServices);
 
 export default router;
+
