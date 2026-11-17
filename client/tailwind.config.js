@@ -7,60 +7,101 @@ export default {
   theme: {
     extend: {
       colors: {
-        sage: {
-          50: '#F2F6F4',
-          100: '#E5EDE9',
-          200: '#CBDCD3',
-          300: '#B1CBBD',
-          400: '#8FAF9D', // Primary Brand Color
-          500: '#769785',
-          600: '#5C7E6C',
-          700: '#456153',
-          800: '#31463B',
-          900: '#1F2E27',
+        // Primary: Deep Teal (#174C4B)
+        teal: {
+          50: '#F0F6F5',
+          100: '#D9E8E6',
+          200: '#B7D1CC', // Soft Aqua Accent 1
+          300: '#8FBAB3',
+          400: '#4D827D',
+          500: '#2A6664',
+          600: '#1F5553',
+          700: '#174C4B', // Primary Brand Deep Teal
+          800: '#123D3C',
+          900: '#0C2B2A',
         },
-        beige: {
-          50: '#FAF8F5',
-          100: '#F5F0E8', // Secondary Brand Color
-          200: '#EBE2D4',
-          300: '#DED1BD',
-          400: '#CEBEA3',
-          500: '#BDAC90',
+        // Secondary: Warm Ivory (#F7F5F0)
+        ivory: {
+          50: '#FDFCFB',
+          100: '#F7F5F0', // Secondary Warm Ivory
+          200: '#ECE8DF',
+          300: '#DDD6C6',
+          400: '#C9BEA8',
         },
+        // Accent 1: Soft Aqua (#B7D1CC)
+        aqua: {
+          50: '#F4F8F7',
+          100: '#EDF4F1', // Light Background Pale Aqua
+          200: '#D5E5E2',
+          300: '#B7D1CC', // Soft Aqua Accent
+          400: '#94BDB5',
+          500: '#6FA399',
+        },
+        // Accent 2: Dusty Rose (#C98F83)
+        rose: {
+          50: '#FAF4F3',
+          100: '#F5E8E5',
+          200: '#E8CEC8',
+          300: '#DBB3A9',
+          400: '#C98F83', // Accent Dusty Rose
+          500: '#B37568',
+          600: '#995B4F',
+          700: '#7C443A',
+        },
+        // Main Text: Charcoal (#263A3A)
         charcoal: {
-          50: '#F4F5F5',
-          100: '#E3E6E5',
-          200: '#C2C8C6',
-          300: '#9DA7A4',
-          400: '#707B77',
-          500: '#4F5855',
-          600: '#3D4642',
-          700: '#353F3A',
-          800: '#303A35', // Deep Charcoal Body Text
-          900: '#1C2320',
+          50: '#F2F4F4',
+          100: '#E0E5E5',
+          200: '#C0CACA',
+          300: '#97A5A5',
+          400: '#687878',
+          500: '#475656',
+          600: '#344545',
+          700: '#2C3E3E',
+          800: '#263A3A', // Main Text Charcoal
+          900: '#192828',
         },
-        gold: {
-          50: '#FAF7F0',
-          100: '#F4ECD8',
-          200: '#E7D8AF',
-          300: '#D9C287',
-          400: '#CFB37B',
-          500: '#C5A46D', // Accent Muted Gold
-          600: '#AA8852',
-          700: '#896C3E',
+        // Borders: Soft Grey (#E3E9E6)
+        softgrey: {
+          50: '#F8FAF9',
+          100: '#EFF2F0',
+          200: '#E3E9E6', // Soft Grey Border
+          300: '#CCD5D1',
+          400: '#B1BCB7',
         },
-        offwhite: '#FAF9F6', // Brand Background
       },
       fontFamily: {
         serif: ['"Playfair Display"', 'Georgia', 'serif'],
         sans: ['Poppins', 'Inter', 'system-ui', 'sans-serif'],
+        nav: ['Poppins', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
-        soft: '0 4px 20px -2px rgba(48, 58, 53, 0.06), 0 2px 6px -1px rgba(48, 58, 53, 0.04)',
-        'soft-lg': '0 10px 25px -3px rgba(48, 58, 53, 0.08), 0 4px 10px -2px rgba(48, 58, 53, 0.04)',
+        soft: '0 4px 20px -2px rgba(23, 76, 75, 0.05), 0 2px 6px -1px rgba(23, 76, 75, 0.03)',
+        'soft-md': '0 8px 24px -4px rgba(23, 76, 75, 0.08), 0 4px 10px -2px rgba(23, 76, 75, 0.04)',
+        'soft-lg': '0 16px 36px -6px rgba(23, 76, 75, 0.12), 0 8px 16px -4px rgba(23, 76, 75, 0.06)',
+        'teal-glow': '0 8px 25px -4px rgba(23, 76, 75, 0.25)',
+        'rose-glow': '0 8px 25px -4px rgba(201, 143, 131, 0.3)',
+      },
+      animation: {
+        'fade-in': 'fadeIn 0.3s ease-out forwards',
+        'slide-up': 'slideUp 0.4s ease-out forwards',
+        'pulse-subtle': 'pulseSubtle 3s ease-in-out infinite',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        slideUp: {
+          '0%': { opacity: '0', transform: 'translateY(12px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        pulseSubtle: {
+          '0%, 100%': { opacity: '1', transform: 'scale(1)' },
+          '50%': { opacity: '0.9', transform: 'scale(1.02)' },
+        },
       },
     },
   },
   plugins: [],
 };
-

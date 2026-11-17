@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import {
   Heart,
   Compass,
@@ -8,17 +9,24 @@ import {
   ClipboardCheck,
   BookOpen,
   Award,
-  Search,
-  Filter,
-  CalendarCheck,
   ShieldCheck,
-  HelpCircle
+  CalendarCheck
 } from 'lucide-react';
+import { motion } from 'framer-motion';
 import ServiceCard from '../components/ServiceCard.jsx';
 import Button from '../components/Button.jsx';
 
 export default function Therapies() {
-  const [filterCategory, setFilterCategory] = useState('all');
+  const [searchParams] = useSearchParams();
+  const initialCategory = searchParams.get('filter') || 'all';
+  const [filterCategory, setFilterCategory] = useState(initialCategory);
+
+  useEffect(() => {
+    const filter = searchParams.get('filter');
+    if (filter) {
+      setFilterCategory(filter);
+    }
+  }, [searchParams]);
 
   const services = [
     {
@@ -26,7 +34,7 @@ export default function Therapies() {
       category: 'relationships',
       serviceKey: 'Marital Counselling',
       description: 'Dedicated couples and marital therapy aimed at identifying communication barriers, re-establishing emotional intimacy, and resolving chronic conflict.',
-      whoBenefits: 'Spouses experiencing relational disconnect, frequent misunderstandings, infidelity recovery, or transitional strain.',
+      whoBenefits: 'Couples and spouses experiencing relational disconnect, frequent misunderstandings, infidelity recovery, or transitional strain.',
       approach: 'Empathetic, balanced mediation focusing on emotional attunement, conflict resolution frameworks, and mutual healing without taking sides.',
       icon: Heart,
       badge: 'Core Specialty',
@@ -108,19 +116,24 @@ export default function Therapies() {
     : services.filter(s => s.category === filterCategory);
 
   return (
-    <div className="space-y-16 sm:space-y-20 py-8 sm:py-12">
+    <div className="space-y-16 sm:space-y-20 py-8 sm:py-14">
       
       {/* 1. Header Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="max-w-3xl mx-auto space-y-4">
-          <span className="badge-sage">Approved Counselling Services</span>
-          <h1 className="text-4xl sm:text-5xl font-serif font-bold text-charcoal-900 tracking-tight">
-            Therapies & Psychological Care
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="max-w-3xl mx-auto space-y-4"
+        >
+          <span className="badge-teal">Approved Counselling Services</span>
+          <h1 className="text-4xl sm:text-5xl font-serif font-bold text-teal-900 tracking-tight">
+            Therapies &amp; Psychological Care
           </h1>
           <p className="text-base sm:text-lg text-charcoal-600 leading-relaxed">
             All counselling services are grounded in empathetic, evidence-informed practices and conducted under strict confidentiality. Review our approved consultation domains below.
           </p>
-        </div>
+        </motion.div>
 
         {/* Filter Pills */}
         <div className="flex flex-wrap items-center justify-center gap-2 mt-8">
@@ -134,10 +147,10 @@ export default function Therapies() {
             <button
               key={tab.id}
               onClick={() => setFilterCategory(tab.id)}
-              className={`px-4 py-2 rounded-full text-xs font-semibold transition-all ${
+              className={`px-4 py-2 rounded-full text-xs font-semibold font-nav transition-all ${
                 filterCategory === tab.id
-                  ? 'bg-sage-600 text-white shadow-sm'
-                  : 'bg-white text-charcoal-700 hover:bg-beige-100 border border-sage-100'
+                  ? 'bg-teal-700 text-white shadow-teal-glow'
+                  : 'bg-white text-charcoal-700 hover:bg-aqua-100 border border-softgrey-200'
               }`}
             >
               {tab.label}
@@ -148,10 +161,13 @@ export default function Therapies() {
 
       {/* 2. Services Grid */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div
+          layout
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
           {filteredServices.map((service, index) => (
             <ServiceCard
-              key={index}
+              key={service.title}
               title={service.title}
               serviceKey={service.serviceKey}
               description={service.description}
@@ -161,15 +177,15 @@ export default function Therapies() {
               badge={service.badge}
             />
           ))}
-        </div>
+        </motion.div>
       </section>
 
       {/* 3. Practice Boundary & Clinical Note */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-beige-50 rounded-3xl p-6 sm:p-8 border border-beige-200/80 space-y-4 text-xs sm:text-sm text-charcoal-700">
-          <div className="flex items-center gap-2 font-serif font-bold text-charcoal-900 text-base">
-            <ShieldCheck className="w-5 h-5 text-sage-600" />
-            <span>Ethical Standards & Service Scope</span>
+        <div className="bg-white rounded-3xl p-6 sm:p-8 border border-softgrey-200 shadow-soft space-y-4 text-xs sm:text-sm text-charcoal-700">
+          <div className="flex items-center gap-2 font-serif font-bold text-teal-900 text-base">
+            <ShieldCheck className="w-5 h-5 text-teal-600" />
+            <span>Ethical Standards &amp; Service Scope</span>
           </div>
           <p className="leading-relaxed">
             All counselling sessions at Sharmila MindCare are conducted in accordance with clinical psychology ethics. Consultations are available both in-person (offline in Madurai) and online (video consultation) subject to clinical suitability and prior manual appointment coordination.
@@ -182,11 +198,11 @@ export default function Therapies() {
 
       {/* 4. Bottom CTA */}
       <section className="max-w-4xl mx-auto px-4 text-center">
-        <div className="bg-white rounded-3xl p-8 sm:p-12 border border-sage-100 shadow-soft space-y-4">
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-charcoal-900">
+        <div className="bg-ivory-100 rounded-3xl p-8 sm:p-12 border border-softgrey-200 shadow-soft space-y-4">
+          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-teal-900">
             Unsure which counselling service is right for you?
           </h2>
-          <p className="text-sm text-charcoal-600 max-w-lg mx-auto">
+          <p className="text-sm text-charcoal-600 max-w-lg mx-auto leading-relaxed">
             You can select &ldquo;Not Sure&rdquo; or &ldquo;Psychological Assessment&rdquo; on our enquiry form. Our team will contact you to discuss your circumstances confidentially.
           </p>
           <div className="pt-2">
@@ -200,4 +216,3 @@ export default function Therapies() {
     </div>
   );
 }
-

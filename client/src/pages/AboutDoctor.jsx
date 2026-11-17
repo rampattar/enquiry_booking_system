@@ -12,6 +12,7 @@ import {
   ShieldCheck,
   Compass
 } from 'lucide-react';
+import { motion } from 'framer-motion';
 import Button from '../components/Button.jsx';
 import DoctorPhotoCard from '../components/DoctorPhotoCard.jsx';
 
@@ -107,45 +108,50 @@ export default function AboutDoctor() {
   ];
 
   return (
-    <div className="space-y-16 sm:space-y-24 py-8 sm:py-12">
+    <div className="space-y-16 sm:space-y-24 py-8 sm:py-14">
       
-      {/* 1. Header & Hero Bio */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* 1. Profile Hero Section */}
+      <section id="profile" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          <div className="lg:col-span-7 space-y-6">
-            <span className="badge-sage">Consultant Psychologist Profile</span>
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="lg:col-span-7 space-y-6"
+          >
+            <span className="badge-teal">Consultant Psychologist Profile</span>
             
-            <h1 className="text-4xl sm:text-5xl font-serif font-bold text-charcoal-900 tracking-tight">
+            <h1 className="text-4xl sm:text-5xl font-serif font-bold text-teal-900 tracking-tight">
               Dr. Sharmila Siraj
             </h1>
 
-            <div className="space-y-1">
-              <p className="text-lg font-serif text-sage-700 font-semibold">
+            <div className="space-y-1.5">
+              <p className="text-lg font-serif text-teal-700 font-semibold">
                 Consultant Psychologist | Counsellor | Interpersonal Skills Trainer
               </p>
-              <div className="flex flex-wrap items-center gap-4 text-xs text-charcoal-500 pt-1">
+              <div className="flex flex-wrap items-center gap-4 text-xs text-charcoal-600 pt-1 font-medium">
                 <span className="flex items-center gap-1.5">
-                  <MapPin className="w-3.5 h-3.5 text-sage-600" />
+                  <MapPin className="w-3.5 h-3.5 text-teal-600" />
                   Madurai, Tamil Nadu, India
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <Languages className="w-3.5 h-3.5 text-sage-600" />
-                  English & Tamil
+                  <Languages className="w-3.5 h-3.5 text-teal-600" />
+                  English &amp; தமிழ்
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <Award className="w-3.5 h-3.5 text-gold-500" />
+                  <Award className="w-3.5 h-3.5 text-rose-500" />
                   12 Years at Ahana Hospitals
                 </span>
               </div>
             </div>
 
-            {/* Official About Me Quote */}
-            <div className="bg-white rounded-3xl p-6 sm:p-8 border border-sage-100 shadow-soft space-y-4">
-              <h2 className="text-base font-serif font-bold text-charcoal-800 uppercase tracking-wider text-sage-800">
-                Personal Statement & Clinical Commitment
+            {/* Verbatim Clinical Statement */}
+            <div className="bg-white rounded-3xl p-6 sm:p-8 border border-softgrey-200 shadow-soft space-y-4">
+              <h2 className="text-xs font-serif font-bold text-teal-800 uppercase tracking-wider">
+                Clinical Philosophy &amp; Approach
               </h2>
-              <blockquote className="text-sm sm:text-base text-charcoal-700 leading-relaxed italic border-l-4 border-sage-400 pl-4">
+              <blockquote className="text-sm sm:text-base text-charcoal-700 leading-relaxed italic border-l-4 border-teal-600 pl-4">
                 &ldquo;I am a Consultant Psychologist, Counsellor and Trainer with 12 years of clinical experience at Ahana Hospitals, Madurai.
                 <br /><br />
                 I help individuals, couples, children and families with counselling, behavioural support and life-skills education. My focus is marital counselling and stress counselling.
@@ -162,61 +168,78 @@ export default function AboutDoctor() {
                 Explore Counselling Therapies
               </Button>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="lg:col-span-5 flex justify-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="lg:col-span-5 flex justify-center"
+          >
             <DoctorPhotoCard className="w-full max-w-md" />
-          </div>
+          </motion.div>
 
         </div>
       </section>
 
 
       {/* 2. Educational Qualifications Timeline */}
-      <section className="bg-white py-16 sm:py-20 border-y border-sage-100">
+      <section id="education" className="bg-white py-16 sm:py-20 border-y border-softgrey-200 scroll-mt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="max-w-3xl mb-12 space-y-3">
-            <span className="badge-gold">Academic Foundation</span>
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-charcoal-900">
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-3xl mb-12 space-y-3"
+          >
+            <span className="badge-teal">Academic Foundation</span>
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-teal-900">
               Educational Qualifications
             </h2>
             <p className="text-sm text-charcoal-600">
-              A solid, formal academic background combining clinical psychology, sociology, and specialised counselling diplomas.
+              A comprehensive academic background combining clinical psychology, sociology, and specialised counselling diplomas.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="relative border-l-2 border-sage-200 ml-4 sm:ml-8 pl-6 sm:pl-10 space-y-8">
+          <div className="relative border-l-2 border-aqua-300 ml-4 sm:ml-8 pl-6 sm:pl-10 space-y-8">
             {educationTimeline.map((item, index) => (
-              <div key={index} className="relative group">
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="relative group"
+              >
                 {/* Timeline node */}
                 <div className={`absolute -left-[31px] sm:-left-[47px] top-1.5 w-5 h-5 rounded-full border-4 border-white transition-all ${
-                  item.current ? 'bg-gold-500 ring-4 ring-gold-100' : 'bg-sage-600 ring-2 ring-sage-100'
+                  item.current ? 'bg-rose-400 ring-4 ring-rose-100' : 'bg-teal-700 ring-2 ring-teal-100'
                 }`} />
 
-                <div className="bg-offwhite rounded-2xl p-6 border border-sage-100 hover:border-sage-200 shadow-soft transition-all">
+                <div className="bg-ivory-50 rounded-2xl p-6 border border-softgrey-200 hover:border-teal-300 shadow-soft transition-all">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
-                    <h3 className="text-lg font-serif font-bold text-charcoal-800">
+                    <h3 className="text-lg font-serif font-bold text-teal-900">
                       {item.degree}
                     </h3>
                     {item.status && (
-                      <span className="badge-gold self-start sm:self-auto">
+                      <span className="badge-rose self-start sm:self-auto font-medium">
                         {item.status}
                       </span>
                     )}
                   </div>
-                  <div className="text-xs font-semibold text-sage-700 mb-2">
+                  <div className="text-xs font-semibold text-teal-700 mb-2 font-nav">
                     {item.institution}
                   </div>
                   <p className="text-xs sm:text-sm text-charcoal-600 leading-relaxed">
                     {item.details}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
 
-          <div className="mt-8 bg-beige-50 rounded-2xl p-4 border border-beige-200/80 text-xs text-charcoal-600">
+          <div className="mt-8 bg-aqua-50 rounded-2xl p-4 border border-aqua-200 text-xs text-charcoal-700">
             <strong>Transparency Notice:</strong> Dr. Sharmila Siraj&apos;s doctoral degree is currently in progress at Madurai Kamaraj University focusing on smartphone addiction. All qualifications are verified and represented accurately without exaggeration.
           </div>
 
@@ -225,79 +248,97 @@ export default function AboutDoctor() {
 
 
       {/* 3. Professional Experience Timeline */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mb-12 space-y-3">
-          <span className="badge-sage">Clinical & Institutional Career</span>
-          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-charcoal-900">
+      <section id="experience" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="max-w-3xl mb-12 space-y-3"
+        >
+          <span className="badge-teal">Clinical &amp; Institutional Career</span>
+          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-teal-900">
             Professional Experience
           </h2>
           <p className="text-sm text-charcoal-600">
             Over a decade of hands-on hospital consultations, judicial training, and community life-skills education.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {experienceTimeline.map((exp, idx) => (
-            <div
+            <motion.div
               key={idx}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: idx * 0.08 }}
               className={`rounded-3xl p-6 sm:p-8 border shadow-soft transition-all ${
                 exp.highlight 
-                  ? 'bg-gradient-to-br from-sage-50 to-white border-sage-300 ring-1 ring-sage-200' 
-                  : 'bg-white border-sage-100'
+                  ? 'bg-gradient-to-br from-teal-50/70 to-white border-teal-300 ring-1 ring-teal-200' 
+                  : 'bg-white border-softgrey-200'
               }`}
             >
               <div className="flex items-center justify-between gap-2 mb-3">
                 <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${
-                  exp.highlight ? 'bg-sage-600 text-white' : 'bg-beige-100 text-charcoal-700'
+                  exp.highlight ? 'bg-teal-700 text-white' : 'bg-aqua-100 text-teal-900'
                 }`}>
                   {exp.period}
                 </span>
-                <Briefcase className="w-4 h-4 text-sage-600" />
+                <Briefcase className="w-4 h-4 text-teal-700" />
               </div>
 
-              <h3 className="text-lg font-serif font-bold text-charcoal-800 mb-1">
+              <h3 className="text-lg font-serif font-bold text-teal-900 mb-1">
                 {exp.role}
               </h3>
               
-              <div className="text-xs font-medium text-sage-700 mb-3">
+              <div className="text-xs font-semibold text-teal-700 mb-3 font-nav">
                 {exp.organization}
               </div>
 
               <p className="text-xs sm:text-sm text-charcoal-600 leading-relaxed">
                 {exp.desc}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>
 
 
       {/* 4. Core Areas of Expertise */}
-      <section className="bg-beige-50/70 py-16 sm:py-20 border-y border-beige-200">
+      <section id="expertise" className="bg-paleaqua py-16 sm:py-20 border-y border-softgrey-200 scroll-mt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center mb-12 space-y-3">
-            <span className="badge-gold">Core Focus</span>
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-charcoal-900">
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-3xl mx-auto text-center mb-12 space-y-3"
+          >
+            <span className="badge-teal">Core Focus</span>
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-teal-900">
               Core Areas of Expertise
             </h2>
             <p className="text-sm text-charcoal-600">
               Approved clinical counselling and behavioural domains developed through clinical practice.
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
             {coreExpertise.map((area, idx) => (
-              <div
+              <motion.div
                 key={idx}
-                className="bg-white rounded-2xl p-4 sm:p-5 border border-beige-200 shadow-soft flex items-center gap-3.5"
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: idx * 0.05 }}
+                className="bg-white rounded-2xl p-4 sm:p-5 border border-softgrey-200 shadow-soft flex items-center gap-3.5 hover:border-teal-300 transition-colors"
               >
-                <div className="w-8 h-8 rounded-xl bg-sage-100 text-sage-700 flex items-center justify-center shrink-0">
+                <div className="w-8 h-8 rounded-xl bg-teal-50 text-teal-700 flex items-center justify-center shrink-0">
                   <CheckCircle2 className="w-4 h-4" />
                 </div>
-                <span className="text-sm font-serif font-semibold text-charcoal-800">
+                <span className="text-sm font-serif font-bold text-charcoal-800">
                   {area}
                 </span>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -305,45 +346,54 @@ export default function AboutDoctor() {
 
 
       {/* 5. Professional Training and Certifications */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mb-12 space-y-3">
-          <span className="badge-sage">Continuing Professional Development</span>
-          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-charcoal-900">
-            Professional Training & Certifications
+      <section id="certifications" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="max-w-3xl mb-12 space-y-3"
+        >
+          <span className="badge-rose">Continuing Professional Development</span>
+          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-teal-900">
+            Professional Training &amp; Certifications
           </h2>
           <p className="text-sm text-charcoal-600">
-            Ongoing specialist training in psychological modalities, psychotherapy, and family interventions.
+            Ongoing specialist training across diverse psychological and behavioural modalities.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {certifications.map((cert, index) => (
-            <div
+            <motion.div
               key={index}
-              className="bg-white rounded-2xl p-4 sm:p-5 border border-sage-100 shadow-xs flex items-start gap-3 hover:border-sage-300 transition-colors"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.3, delay: index * 0.04 }}
+              className="bg-white rounded-2xl p-4 sm:p-5 border border-softgrey-200 shadow-xs flex items-start gap-3 hover:border-teal-300 transition-colors"
             >
-              <Award className="w-5 h-5 text-gold-500 shrink-0 mt-0.5" />
+              <Award className="w-5 h-5 text-rose-400 shrink-0 mt-0.5" />
               <div>
                 <h3 className="text-xs sm:text-sm font-medium text-charcoal-800 leading-snug">
                   {cert}
                 </h3>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>
 
 
-      {/* 6. Closing CTA */}
-      <section className="max-w-4xl mx-auto px-4 text-center space-y-6">
-        <div className="bg-sage-100/70 rounded-3xl p-8 sm:p-12 border border-sage-200">
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-charcoal-900 mb-3">
+      {/* 6. Closing Action Box */}
+      <section className="max-w-4xl mx-auto px-4 text-center">
+        <div className="bg-teal-50/90 rounded-3xl p-8 sm:p-12 border border-teal-200 space-y-4">
+          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-teal-900">
             Schedule a Confidential Consultation Enquiry
           </h2>
-          <p className="text-sm text-charcoal-600 max-w-xl mx-auto mb-6">
+          <p className="text-sm text-charcoal-600 max-w-xl mx-auto leading-relaxed">
             Our team will reach out to understand your situation, answer initial questions, and coordinate an appointment based on Dr. Sharmila&apos;s schedule.
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
             <Button to="/book-a-session" variant="primary" size="md">
               Book a Session Enquiry
             </Button>
@@ -357,4 +407,3 @@ export default function AboutDoctor() {
     </div>
   );
 }
-

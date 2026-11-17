@@ -14,6 +14,7 @@ import {
   Mail,
   Loader2
 } from 'lucide-react';
+import { motion } from 'framer-motion';
 import Button from '../components/Button.jsx';
 import { submitEnquiry } from '../services/api.js';
 
@@ -127,21 +128,26 @@ export default function BookSession() {
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-14 space-y-10">
       
       {/* Header */}
-      <div className="text-center space-y-4 max-w-2xl mx-auto">
-        <span className="badge-sage">Confidential Consultation Intake</span>
-        <h1 className="text-3xl sm:text-4xl font-serif font-bold text-charcoal-900 tracking-tight">
+      <motion.div
+        initial={{ opacity: 0, y: 15 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="text-center space-y-3 max-w-2xl mx-auto"
+      >
+        <span className="badge-teal">Confidential Consultation Intake</span>
+        <h1 className="text-3xl sm:text-4xl font-serif font-bold text-teal-900 tracking-tight">
           Submit an Appointment Enquiry
         </h1>
         <p className="text-sm sm:text-base text-charcoal-600 leading-relaxed">
           Please provide your contact details below. Our team will contact you to understand your requirements and coordinate a suitable consultation time based on Dr. Sharmila Siraj&apos;s availability.
         </p>
-      </div>
+      </motion.div>
 
       {/* Mandatory Notice Banner: NOT an automatic slot booking */}
-      <div className="bg-sage-50 rounded-2xl p-4 sm:p-5 border border-sage-200/80 flex items-start gap-3.5 text-xs sm:text-sm text-charcoal-700">
-        <HelpCircle className="w-5 h-5 text-sage-700 shrink-0 mt-0.5" />
+      <div className="bg-aqua-100 rounded-2xl p-4 sm:p-5 border border-aqua-200 flex items-start gap-3.5 text-xs sm:text-sm text-charcoal-700">
+        <HelpCircle className="w-5 h-5 text-teal-800 shrink-0 mt-0.5" />
         <div className="space-y-1">
-          <p className="font-semibold text-charcoal-900">
+          <p className="font-semibold text-teal-950 font-nav">
             Enquiry Coordination System (No Instant Slot Reservation)
           </p>
           <p className="text-charcoal-600 leading-relaxed text-xs">
@@ -151,17 +157,21 @@ export default function BookSession() {
       </div>
 
       {/* Main Form or Success Screen */}
-      <div className="bg-white rounded-3xl p-6 sm:p-10 border border-sage-100 shadow-soft">
+      <div className="bg-white rounded-3xl p-6 sm:p-10 border border-softgrey-200 shadow-soft">
         
         {submissionSuccess ? (
-          <div className="text-center py-8 space-y-6 animate-fadeIn">
-            <div className="w-16 h-16 rounded-full bg-sage-100 text-sage-600 flex items-center justify-center mx-auto border-2 border-sage-200">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="text-center py-8 space-y-6"
+          >
+            <div className="w-16 h-16 rounded-full bg-teal-50 text-teal-700 flex items-center justify-center mx-auto border-2 border-teal-200">
               <CheckCircle2 className="w-9 h-9" />
             </div>
 
             <div className="space-y-2">
-              <span className="badge-gold">Enquiry Received</span>
-              <h2 className="text-2xl sm:text-3xl font-serif font-bold text-charcoal-900">
+              <span className="badge-rose">Enquiry Received</span>
+              <h2 className="text-2xl sm:text-3xl font-serif font-bold text-teal-900">
                 Thank You, {formData.fullName}
               </h2>
               <p className="text-sm text-charcoal-600 max-w-lg mx-auto">
@@ -170,20 +180,20 @@ export default function BookSession() {
             </div>
 
             {/* Unique Enquiry ID Card */}
-            <div className="bg-offwhite p-5 rounded-2xl border border-sage-200 max-w-sm mx-auto text-center space-y-1">
-              <div className="text-[11px] uppercase tracking-wider text-charcoal-500 font-semibold">
+            <div className="bg-ivory-50 p-5 rounded-2xl border border-softgrey-200 max-w-sm mx-auto text-center space-y-1">
+              <div className="text-[11px] uppercase tracking-wider text-charcoal-500 font-semibold font-nav">
                 Your Enquiry Reference ID
               </div>
-              <div className="text-2xl font-serif font-bold text-sage-700 tracking-wider">
+              <div className="text-2xl font-serif font-bold text-teal-800 tracking-wider">
                 {submittedEnquiryId}
               </div>
-              <p className="text-[11px] text-charcoal-400">
+              <p className="text-[11px] text-charcoal-500">
                 Please quote this reference number during any follow-up communication.
               </p>
             </div>
 
             {serverNotice && (
-              <p className="text-xs text-sage-600 italic">{serverNotice}</p>
+              <p className="text-xs text-teal-700 italic">{serverNotice}</p>
             )}
 
             <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -210,7 +220,7 @@ export default function BookSession() {
                 Return to Home
               </Button>
             </div>
-          </div>
+          </motion.div>
         ) : (
           <form onSubmit={handleSubmit} noValidate className="space-y-6">
             
@@ -223,8 +233,8 @@ export default function BookSession() {
 
             {/* Field: Full Name */}
             <div>
-              <label htmlFor="fullName" className="block text-xs font-semibold uppercase tracking-wider text-charcoal-700 mb-1.5">
-                Full Name <span className="text-red-500">*</span>
+              <label htmlFor="fullName" className="block text-xs font-semibold uppercase tracking-wider text-charcoal-700 mb-1.5 font-nav">
+                Full Name <span className="text-rose-500">*</span>
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-charcoal-400">
@@ -237,10 +247,10 @@ export default function BookSession() {
                   value={formData.fullName}
                   onChange={handleChange}
                   placeholder="Enter your full name"
-                  className={`w-full pl-10 pr-4 py-2.5 rounded-xl border text-sm text-charcoal-800 bg-offwhite/50 focus:bg-white focus:outline-none focus:ring-2 transition-all ${
+                  className={`w-full pl-10 pr-4 py-2.5 rounded-xl border text-sm text-charcoal-800 bg-ivory-50/60 focus:bg-white focus:outline-none focus:ring-2 transition-all ${
                     errors.fullName
                       ? 'border-red-400 focus:ring-red-200'
-                      : 'border-sage-200 focus:ring-sage-200 focus:border-sage-400'
+                      : 'border-softgrey-200 focus:ring-teal-200 focus:border-teal-500'
                   }`}
                 />
               </div>
@@ -251,8 +261,8 @@ export default function BookSession() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               
               <div>
-                <label htmlFor="mobileNumber" className="block text-xs font-semibold uppercase tracking-wider text-charcoal-700 mb-1.5">
-                  Mobile Number <span className="text-red-500">*</span>
+                <label htmlFor="mobileNumber" className="block text-xs font-semibold uppercase tracking-wider text-charcoal-700 mb-1.5 font-nav">
+                  Mobile Number <span className="text-rose-500">*</span>
                 </label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-charcoal-400">
@@ -265,10 +275,10 @@ export default function BookSession() {
                     value={formData.mobileNumber}
                     onChange={handleChange}
                     placeholder="10-digit mobile number"
-                    className={`w-full pl-10 pr-4 py-2.5 rounded-xl border text-sm text-charcoal-800 bg-offwhite/50 focus:bg-white focus:outline-none focus:ring-2 transition-all ${
+                    className={`w-full pl-10 pr-4 py-2.5 rounded-xl border text-sm text-charcoal-800 bg-ivory-50/60 focus:bg-white focus:outline-none focus:ring-2 transition-all ${
                       errors.mobileNumber
                         ? 'border-red-400 focus:ring-red-200'
-                        : 'border-sage-200 focus:ring-sage-200 focus:border-sage-400'
+                        : 'border-softgrey-200 focus:ring-teal-200 focus:border-teal-500'
                     }`}
                   />
                 </div>
@@ -277,7 +287,7 @@ export default function BookSession() {
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-xs font-semibold uppercase tracking-wider text-charcoal-700 mb-1.5">
+                <label htmlFor="email" className="block text-xs font-semibold uppercase tracking-wider text-charcoal-700 mb-1.5 font-nav">
                   Email Address <span className="text-charcoal-400 text-[10px] lowercase font-normal">(optional)</span>
                 </label>
                 <div className="relative">
@@ -291,10 +301,10 @@ export default function BookSession() {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="your.email@example.com"
-                    className={`w-full pl-10 pr-4 py-2.5 rounded-xl border text-sm text-charcoal-800 bg-offwhite/50 focus:bg-white focus:outline-none focus:ring-2 transition-all ${
+                    className={`w-full pl-10 pr-4 py-2.5 rounded-xl border text-sm text-charcoal-800 bg-ivory-50/60 focus:bg-white focus:outline-none focus:ring-2 transition-all ${
                       errors.email
                         ? 'border-red-400 focus:ring-red-200'
-                        : 'border-sage-200 focus:ring-sage-200 focus:border-sage-400'
+                        : 'border-softgrey-200 focus:ring-teal-200 focus:border-teal-500'
                     }`}
                   />
                 </div>
@@ -307,7 +317,7 @@ export default function BookSession() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               
               <div>
-                <label htmlFor="consultationMode" className="block text-xs font-semibold uppercase tracking-wider text-charcoal-700 mb-1.5">
+                <label htmlFor="consultationMode" className="block text-xs font-semibold uppercase tracking-wider text-charcoal-700 mb-1.5 font-nav">
                   Preferred Consultation Mode
                 </label>
                 <select
@@ -315,7 +325,7 @@ export default function BookSession() {
                   name="consultationMode"
                   value={formData.consultationMode}
                   onChange={handleChange}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-sage-200 text-sm text-charcoal-800 bg-offwhite/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-sage-200 focus:border-sage-400 transition-all"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-softgrey-200 text-sm text-charcoal-800 bg-ivory-50/60 focus:bg-white focus:outline-none focus:ring-2 focus:ring-teal-200 focus:border-teal-500 transition-all"
                 >
                   <option value="Online">Online Video Consultation (Zoom / Meet)</option>
                   <option value="Offline">Offline / In-Person (Madurai)</option>
@@ -324,7 +334,7 @@ export default function BookSession() {
               </div>
 
               <div>
-                <label htmlFor="ageGroup" className="block text-xs font-semibold uppercase tracking-wider text-charcoal-700 mb-1.5">
+                <label htmlFor="ageGroup" className="block text-xs font-semibold uppercase tracking-wider text-charcoal-700 mb-1.5 font-nav">
                   Age Group <span className="text-charcoal-400 text-[10px] lowercase font-normal">(optional)</span>
                 </label>
                 <select
@@ -332,7 +342,7 @@ export default function BookSession() {
                   name="ageGroup"
                   value={formData.ageGroup}
                   onChange={handleChange}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-sage-200 text-sm text-charcoal-800 bg-offwhite/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-sage-200 focus:border-sage-400 transition-all"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-softgrey-200 text-sm text-charcoal-800 bg-ivory-50/60 focus:bg-white focus:outline-none focus:ring-2 focus:ring-teal-200 focus:border-teal-500 transition-all"
                 >
                   <option value="">Select Age Group</option>
                   <option value="Child (Below 12)">Child (Below 12)</option>
@@ -347,7 +357,7 @@ export default function BookSession() {
 
             {/* Field: Service of Interest */}
             <div>
-              <label htmlFor="serviceInterest" className="block text-xs font-semibold uppercase tracking-wider text-charcoal-700 mb-1.5">
+              <label htmlFor="serviceInterest" className="block text-xs font-semibold uppercase tracking-wider text-charcoal-700 mb-1.5 font-nav">
                 Service of Interest
               </label>
               <select
@@ -355,14 +365,14 @@ export default function BookSession() {
                 name="serviceInterest"
                 value={formData.serviceInterest}
                 onChange={handleChange}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-sage-200 text-sm text-charcoal-800 bg-offwhite/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-sage-200 focus:border-sage-400 transition-all"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-softgrey-200 text-sm text-charcoal-800 bg-ivory-50/60 focus:bg-white focus:outline-none focus:ring-2 focus:ring-teal-200 focus:border-teal-500 transition-all"
               >
-                <option value="Marital Counselling">Marital & Relationship Counselling</option>
-                <option value="Stress Counselling">Stress & Anxiety Counselling</option>
+                <option value="Marital Counselling">Marital &amp; Relationship Counselling</option>
+                <option value="Stress Counselling">Stress &amp; Anxiety Counselling</option>
                 <option value="Individual Counselling">Individual Psychological Counselling</option>
-                <option value="Family Counselling">Family & Parenting Counselling</option>
-                <option value="Behavioural Support">Child & Adolescent Behavioural Support</option>
-                <option value="Psychological Assessment">Psychological Consultation & Assessment</option>
+                <option value="Family Counselling">Family &amp; Parenting Counselling</option>
+                <option value="Behavioural Support">Child &amp; Adolescent Behavioural Support</option>
+                <option value="Psychological Assessment">Psychological Consultation &amp; Assessment</option>
                 <option value="Life-Skills Education">Life-Skills Education</option>
                 <option value="Interpersonal Skills Training">Interpersonal Skills Training</option>
                 <option value="Other / Not Sure">Other / Not Sure (Discuss on Call)</option>
@@ -371,14 +381,14 @@ export default function BookSession() {
 
             {/* Field: Preferred Contact Method */}
             <div>
-              <span className="block text-xs font-semibold uppercase tracking-wider text-charcoal-700 mb-2">
+              <span className="block text-xs font-semibold uppercase tracking-wider text-charcoal-700 mb-2 font-nav">
                 Preferred Follow-up Contact Method
               </span>
               <div className="grid grid-cols-2 gap-4">
                 <label className={`flex items-center gap-3 p-3 rounded-xl border cursor-pointer transition-all ${
                   formData.preferredContactMethod === 'Phone Call'
-                    ? 'bg-sage-50 border-sage-400 text-sage-900 font-medium'
-                    : 'border-sage-200 text-charcoal-700 hover:bg-beige-50'
+                    ? 'bg-teal-50 border-teal-500 text-teal-900 font-semibold'
+                    : 'border-softgrey-200 text-charcoal-700 hover:bg-ivory-50'
                 }`}>
                   <input
                     type="radio"
@@ -386,16 +396,16 @@ export default function BookSession() {
                     value="Phone Call"
                     checked={formData.preferredContactMethod === 'Phone Call'}
                     onChange={handleChange}
-                    className="accent-sage-600"
+                    className="accent-teal-700"
                   />
-                  <Phone className="w-4 h-4 text-sage-600" />
-                  <span className="text-xs sm:text-sm">Phone Call</span>
+                  <Phone className="w-4 h-4 text-teal-700" />
+                  <span className="text-xs sm:text-sm font-nav">Phone Call</span>
                 </label>
 
                 <label className={`flex items-center gap-3 p-3 rounded-xl border cursor-pointer transition-all ${
                   formData.preferredContactMethod === 'WhatsApp'
-                    ? 'bg-sage-50 border-sage-400 text-sage-900 font-medium'
-                    : 'border-sage-200 text-charcoal-700 hover:bg-beige-50'
+                    ? 'bg-teal-50 border-teal-500 text-teal-900 font-semibold'
+                    : 'border-softgrey-200 text-charcoal-700 hover:bg-ivory-50'
                 }`}>
                   <input
                     type="radio"
@@ -403,16 +413,16 @@ export default function BookSession() {
                     value="WhatsApp"
                     checked={formData.preferredContactMethod === 'WhatsApp'}
                     onChange={handleChange}
-                    className="accent-sage-600"
+                    className="accent-teal-700"
                   />
                   <MessageSquare className="w-4 h-4 text-[#25D366]" />
-                  <span className="text-xs sm:text-sm">WhatsApp Message</span>
+                  <span className="text-xs sm:text-sm font-nav">WhatsApp Message</span>
                 </label>
               </div>
             </div>
 
-            {/* Privacy Protection Notice (No Clinical Histories Online) */}
-            <div className="p-3.5 rounded-xl bg-beige-50 border border-beige-200 text-xs text-charcoal-600">
+            {/* Privacy Protection Notice */}
+            <div className="p-3.5 rounded-xl bg-aqua-50 border border-aqua-200 text-xs text-charcoal-700">
               <p>
                 <strong>Privacy Protected:</strong> We do not ask for detailed psychological histories or medical details in this form. All clinical conversations take place strictly in confidential sessions with Dr. Sharmila Siraj.
               </p>
@@ -426,13 +436,13 @@ export default function BookSession() {
                   name="consent"
                   checked={formData.consent}
                   onChange={handleChange}
-                  className="mt-1 h-4 w-4 rounded border-sage-300 text-sage-600 focus:ring-sage-500 accent-sage-600"
+                  className="mt-1 h-4 w-4 rounded border-softgrey-300 text-teal-700 focus:ring-teal-500 accent-teal-700"
                 />
                 <span className="text-xs text-charcoal-700 leading-normal">
                   I understand that submitting this enquiry does not confirm an appointment. I consent to Sharmila MindCare&apos;s team contacting me via phone/WhatsApp to discuss requirements and coordinate availability in accordance with the{' '}
-                  <Link to="/policies" target="_blank" className="text-sage-700 underline font-medium hover:text-sage-900">
+                  <Link to="/policies" target="_blank" className="text-teal-700 underline font-semibold hover:text-teal-900">
                     Privacy Policy
-                  </Link>. <span className="text-red-500">*</span>
+                  </Link>. <span className="text-rose-500">*</span>
                 </span>
               </label>
               {errors.consent && <p className="text-xs text-red-500 pl-7">{errors.consent}</p>}
@@ -444,7 +454,7 @@ export default function BookSession() {
                 type="submit"
                 variant="primary"
                 size="lg"
-                className="w-full justify-center"
+                className="w-full justify-center shadow-teal-glow font-semibold"
                 disabled={isSubmitting}
                 icon={isSubmitting ? Loader2 : CalendarCheck}
               >
@@ -459,13 +469,13 @@ export default function BookSession() {
 
       {/* Alternative Immediate Contact Option */}
       <div className="text-center space-y-2">
-        <p className="text-xs text-charcoal-500">
+        <p className="text-xs text-charcoal-500 font-medium">
           Prefer to reach us directly without filling the form?
         </p>
-        <div className="flex items-center justify-center gap-4 text-xs">
+        <div className="flex items-center justify-center gap-4 text-xs font-nav font-medium">
           <a
             href="tel:+919894635451"
-            className="inline-flex items-center gap-1.5 font-medium text-sage-700 hover:text-sage-900"
+            className="inline-flex items-center gap-1.5 text-teal-700 hover:text-teal-900"
           >
             <Phone className="w-3.5 h-3.5" />
             <span>Call +91 98946 35451</span>
@@ -475,7 +485,7 @@ export default function BookSession() {
             href="https://wa.me/919894635451?text=Hello%20Dr.%20Sharmila%20MindCare,%20I%20would%20like%20to%20enquire%20about%20a%20counselling%20session."
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 font-medium text-[#25D366] hover:text-emerald-700"
+            className="inline-flex items-center gap-1.5 text-[#25D366] hover:text-emerald-700"
           >
             <MessageSquare className="w-3.5 h-3.5" />
             <span>WhatsApp Enquiry</span>

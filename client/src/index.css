@@ -8,23 +8,41 @@
   }
 
   body {
-    background-color: #FAF9F6;
-    color: #303A35;
-    font-family: 'Poppins', 'Inter', sans-serif;
+    background-color: #F7F5F0; /* Warm Ivory */
+    color: #263A3A;            /* Charcoal */
+    font-family: 'Poppins', 'Inter', system-ui, sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', Georgia, serif;
-    color: #303A35;
+    color: #174C4B; /* Deep Teal */
+  }
+
+  ::selection {
+    background-color: #B7D1CC; /* Soft Aqua */
+    color: #174C4B;
   }
 }
 
-/* Custom utility styles */
-.badge-gold {
-  @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold tracking-wide bg-gold-100 text-gold-700 border border-gold-200;
+/* Custom Badges */
+.badge-teal {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold tracking-wide bg-teal-50 text-teal-800 border border-teal-200;
 }
 
-.badge-sage {
-  @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold tracking-wide bg-sage-100 text-sage-800 border border-sage-200;
+.badge-aqua {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold tracking-wide bg-aqua-100 text-teal-900 border border-aqua-300;
 }
 
+.badge-rose {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold tracking-wide bg-rose-50 text-rose-700 border border-rose-200;
+}
+
+/* Reduced Motion Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

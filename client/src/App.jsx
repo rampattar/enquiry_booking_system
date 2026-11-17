@@ -7,6 +7,7 @@ import ScrollToTop from './components/ScrollToTop.jsx';
 import Home from './pages/Home.jsx';
 import AboutDoctor from './pages/AboutDoctor.jsx';
 import Therapies from './pages/Therapies.jsx';
+import Resources from './pages/Resources.jsx';
 import Policies from './pages/Policies.jsx';
 import BookSession from './pages/BookSession.jsx';
 import Contact from './pages/Contact.jsx';
@@ -22,6 +23,7 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="about" element={<AboutDoctor />} />
           <Route path="therapies" element={<Therapies />} />
+          <Route path="resources" element={<Resources />} />
           <Route path="policies" element={<Policies />} />
           <Route path="book-a-session" element={<BookSession />} />
           <Route path="contact" element={<Contact />} />
