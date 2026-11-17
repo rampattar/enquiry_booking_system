@@ -2,16 +2,12 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Navbar from '../components/Navbar.jsx';
 import Footer from '../components/Footer.jsx';
-import CrisisNotice from '../components/CrisisNotice.jsx';
 import { MessageSquare } from 'lucide-react';
 
 export default function PublicLayout() {
   return (
     <div className="min-h-screen flex flex-col bg-ivory-100 text-charcoal-800 font-sans antialiased selection:bg-aqua-200 selection:text-teal-900">
-      {/* Top Emergency / Crisis Notice Bar */}
-      <CrisisNotice />
-
-      {/* Main Navigation Bar with Top Info Bar & Mega Menu */}
+      {/* Main Navigation Bar */}
       <Navbar />
 
       {/* Main Content Area */}
@@ -31,7 +27,7 @@ export default function PublicLayout() {
         <span className="sr-only">Chat on WhatsApp</span>
       </a>
 
-      {/* Global Redesigned Footer */}
+      {/* Global Footer */}
       <Footer />
     </div>
   );
