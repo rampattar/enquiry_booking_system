@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { ChevronRight } from 'lucide-react';
 
 export default function Button({
   children,
@@ -9,36 +10,60 @@ export default function Button({
   size = 'md',
   className = '',
   icon: Icon,
-  iconPosition = 'left',
+  showDot = true,
+  showArrow = false,
   type = 'button',
   onClick,
   disabled = false,
   ...props
 }) {
-  const baseStyles = 'inline-flex items-center justify-center font-medium font-nav tracking-normal transition-all duration-200 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-sm hover:shadow active:scale-[0.98]';
+  const baseStyles = 'group inline-flex items-center justify-center font-semibold font-nav uppercase tracking-wider transition-all duration-200 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed active:scale-[0.98] select-none';
 
   const variants = {
-    primary: 'bg-teal-700 hover:bg-teal-800 text-white focus:ring-teal-500 border border-transparent shadow-teal-glow hover:shadow-lg',
-    secondary: 'bg-white hover:bg-aqua-100 text-teal-800 focus:ring-teal-400 border border-softgrey-200 shadow-soft',
-    accent: 'bg-rose-400 hover:bg-rose-500 text-white font-semibold focus:ring-rose-400 border border-transparent shadow-rose-glow hover:shadow-lg',
-    outline: 'border-2 border-teal-700 text-teal-700 hover:bg-teal-700 hover:text-white focus:ring-teal-500 bg-transparent',
-    ghost: 'text-charcoal-700 hover:text-teal-800 hover:bg-aqua-100/60 focus:ring-teal-400 bg-transparent shadow-none hover:shadow-none',
-    whatsapp: 'bg-[#25D366] hover:bg-[#20ba59] text-white focus:ring-[#25D366] border border-transparent font-medium shadow-md hover:shadow-lg',
+    // Signature Medical Cyan from user reference (Image 2 & 3)
+    primary: 'bg-[#48B6B7] hover:bg-[#3AA3A4] text-white focus:ring-[#48B6B7] border border-transparent shadow-cyan-glow hover:shadow-lg',
+    cyan: 'bg-[#48B6B7] hover:bg-[#3AA3A4] text-white focus:ring-[#48B6B7] border border-transparent shadow-cyan-glow hover:shadow-lg',
+    // Signature Deep Navy Blue from user reference
+    navy: 'bg-[#0E3854] hover:bg-[#134B6E] text-white focus:ring-[#0E3854] border border-transparent shadow-navy-glow hover:shadow-lg',
+    // White Pill with Navy Text (Image 1 Call Now)
+    white: 'bg-white hover:bg-cyan-50 text-[#0E3854] focus:ring-[#48B6B7] border border-softgrey-200 shadow-md hover:shadow-lg',
+    secondary: 'bg-white hover:bg-cyan-50 text-[#0E3854] focus:ring-[#48B6B7] border border-softgrey-300 shadow-soft',
+    outline: 'border-2 border-[#48B6B7] text-[#2E8485] hover:bg-[#48B6B7] hover:text-white focus:ring-[#48B6B7] bg-transparent',
+    ghost: 'text-[#0E3854] hover:text-[#48B6B7] hover:bg-cyan-50 focus:ring-[#48B6B7] bg-transparent shadow-none',
+    whatsapp: 'bg-[#25D366] hover:bg-[#20ba59] text-white focus:ring-[#25D366] border border-transparent shadow-md hover:shadow-lg',
   };
 
   const sizes = {
-    sm: 'text-xs px-3.5 py-1.5 gap-1.5',
-    md: 'text-sm px-5 py-2.5 gap-2',
-    lg: 'text-base px-6 py-3.5 gap-2.5 font-semibold',
+    sm: 'text-[11px] py-1.5 px-3.5 gap-2',
+    md: 'text-xs py-2.5 px-5 gap-2.5',
+    lg: 'text-xs sm:text-sm py-3.5 px-7 gap-3 font-bold',
   };
 
   const combinedClasses = `${baseStyles} ${variants[variant] || variants.primary} ${sizes[size] || sizes.md} ${className}`;
 
+  const renderIconBadge = () => {
+    if (Icon) {
+      return (
+        <span className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center shrink-0 -ml-1 transition-transform group-hover:scale-110">
+          <Icon className="w-3 h-3" />
+        </span>
+      );
+    }
+    if (showDot) {
+      return (
+        <span className="w-2.5 h-2.5 rounded-full bg-white/80 shrink-0 -ml-0.5 group-hover:scale-125 transition-transform" />
+      );
+    }
+    return null;
+  };
+
   const content = (
     <>
-      {Icon && iconPosition === 'left' && <Icon className="w-4 h-4 shrink-0 transition-transform group-hover:-translate-x-0.5" />}
+      {renderIconBadge()}
       <span>{children}</span>
-      {Icon && iconPosition === 'right' && <Icon className="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-0.5" />}
+      {showArrow && (
+        <ChevronRight className="w-3.5 h-3.5 shrink-0 -mr-1 transition-transform duration-200 group-hover:translate-x-1" />
+      )}
     </>
   );
 

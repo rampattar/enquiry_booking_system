@@ -19,7 +19,8 @@ import {
   Briefcase,
   ShieldCheck,
   HelpCircle,
-  MessageSquare
+  MessageSquare,
+  Phone
 } from 'lucide-react';
 import Button from './Button.jsx';
 
@@ -204,8 +205,8 @@ export default function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full bg-[#174C4B] border-b border-[#123D3C] transition-shadow duration-200 ${
-        scrolled ? 'shadow-xl py-3' : 'shadow-md py-4'
+      className={`sticky top-0 z-50 w-full bg-[#0E3854] border-b border-[#0A273C] transition-shadow duration-200 ${
+        scrolled ? 'shadow-2xl py-3' : 'shadow-md py-3.5 sm:py-4'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -214,16 +215,16 @@ export default function Navbar() {
           {/* Brand Logo & Name */}
           <Link
             to="/"
-            className="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-[#B7D1CC] rounded-xl p-1"
+            className="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-[#48B6B7] rounded-xl p-1"
           >
-            <div className="w-11 h-11 rounded-2xl bg-white/10 group-hover:bg-white/15 text-[#B7D1CC] border border-white/15 flex items-center justify-center transition-all duration-300 group-hover:scale-105 shrink-0">
+            <div className="w-11 h-11 rounded-2xl bg-white/10 group-hover:bg-[#48B6B7] text-[#48B6B7] group-hover:text-white border border-[#48B6B7]/30 flex items-center justify-center transition-all duration-300 group-hover:scale-105 shrink-0 shadow-inner">
               <HeartHandshake className="w-6 h-6" />
             </div>
             <div>
               <span className="text-xl sm:text-2xl font-serif font-bold tracking-tight text-white block leading-tight">
                 Sharmila MindCare
               </span>
-              <span className="text-[10px] sm:text-[11px] font-sans uppercase tracking-wider text-[#B7D1CC] block font-medium">
+              <span className="text-[10px] sm:text-[11px] font-sans uppercase tracking-wider text-[#48B6B7] block font-medium">
                 Psychological Care &amp; Wellbeing
               </span>
             </div>
@@ -263,7 +264,7 @@ export default function Navbar() {
                 aria-expanded={activeDropdown === 'about'}
               >
                 <span>About Doctor</span>
-                <ChevronDown className={`w-3.5 h-3.5 text-[#B7D1CC] transition-transform duration-200 ${activeDropdown === 'about' ? 'rotate-180' : ''}`} />
+                <ChevronDown className={`w-3.5 h-3.5 text-[#48B6B7] transition-transform duration-200 ${activeDropdown === 'about' ? 'rotate-180' : ''}`} />
               </button>
 
               {/* About Dropdown Panel */}
@@ -275,13 +276,13 @@ export default function Navbar() {
                       <Link
                         key={idx}
                         to={item.to}
-                        className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-aqua-100/60 transition-colors group"
+                        className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-cyan-50 transition-colors group"
                       >
-                        <div className="w-8 h-8 rounded-lg bg-teal-50 text-teal-700 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-teal-700 group-hover:text-white transition-colors">
+                        <div className="w-8 h-8 rounded-lg bg-cyan-100 text-[#0E3854] flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-[#48B6B7] group-hover:text-white transition-colors">
                           <Icon className="w-4 h-4" />
                         </div>
                         <div>
-                          <div className="text-xs font-semibold text-charcoal-800 group-hover:text-teal-700 transition-colors">
+                          <div className="text-xs font-semibold text-charcoal-800 group-hover:text-[#0E3854] transition-colors">
                             {item.title}
                           </div>
                           <div className="text-[11px] text-charcoal-500 leading-tight">
@@ -312,7 +313,7 @@ export default function Navbar() {
                 aria-expanded={activeDropdown === 'services'}
               >
                 <span>Services</span>
-                <ChevronDown className={`w-3.5 h-3.5 text-[#B7D1CC] transition-transform duration-200 ${activeDropdown === 'services' ? 'rotate-180' : ''}`} />
+                <ChevronDown className={`w-3.5 h-3.5 text-[#48B6B7] transition-transform duration-200 ${activeDropdown === 'services' ? 'rotate-180' : ''}`} />
               </button>
 
               {/* Mega Menu Panel */}
@@ -321,10 +322,10 @@ export default function Navbar() {
                   <div className="grid grid-cols-12 gap-8 items-stretch">
                     
                     {/* Left Column: Intro */}
-                    <div className="col-span-3 bg-teal-50/70 rounded-2xl p-5 border border-teal-100 flex flex-col justify-between">
+                    <div className="col-span-3 bg-navy-50 rounded-2xl p-5 border border-navy-100 flex flex-col justify-between">
                       <div>
-                        <span className="badge-teal mb-2">Approved Care</span>
-                        <h4 className="text-lg font-serif font-bold text-teal-700 mb-2">
+                        <span className="badge-navy mb-2">Approved Care</span>
+                        <h4 className="text-lg font-serif font-bold text-[#0E3854] mb-2">
                           Psychological Services
                         </h4>
                         <p className="text-xs text-charcoal-600 leading-relaxed mb-4">
@@ -332,10 +333,10 @@ export default function Navbar() {
                         </p>
                       </div>
 
-                      <div className="pt-3 border-t border-teal-200/60">
+                      <div className="pt-3 border-t border-navy-200">
                         <Link
                           to="/therapies"
-                          className="inline-flex items-center gap-1.5 text-xs font-semibold text-teal-700 hover:text-teal-900 transition-colors"
+                          className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0E3854] hover:text-[#48B6B7] transition-colors"
                         >
                           <span>Browse All Therapies</span>
                           <ArrowRight className="w-3.5 h-3.5" />
@@ -351,13 +352,13 @@ export default function Navbar() {
                           <Link
                             key={idx}
                             to={svc.to}
-                            className="flex items-start gap-2.5 p-2.5 rounded-xl hover:bg-aqua-100/60 transition-colors group"
+                            className="flex items-start gap-2.5 p-2.5 rounded-xl hover:bg-cyan-50 transition-colors group"
                           >
-                            <div className="w-8 h-8 rounded-lg bg-teal-50 text-teal-700 flex items-center justify-center shrink-0 group-hover:bg-teal-700 group-hover:text-white transition-colors">
+                            <div className="w-8 h-8 rounded-lg bg-cyan-100 text-[#0E3854] flex items-center justify-center shrink-0 group-hover:bg-[#48B6B7] group-hover:text-white transition-colors">
                               <Icon className="w-4 h-4" />
                             </div>
                             <div>
-                              <div className="text-xs font-semibold text-charcoal-800 group-hover:text-teal-700 transition-colors">
+                              <div className="text-xs font-semibold text-charcoal-800 group-hover:text-[#0E3854] transition-colors">
                                 {svc.title}
                               </div>
                               <div className="text-[10px] text-charcoal-500 leading-tight">
@@ -370,21 +371,21 @@ export default function Navbar() {
                     </div>
 
                     {/* Right Column: Highlighted Enquiry Card */}
-                    <div className="col-span-3 bg-gradient-to-br from-teal-700 to-teal-950 rounded-2xl p-5 text-white flex flex-col justify-between shadow-teal-glow">
+                    <div className="col-span-3 bg-gradient-to-br from-[#0E3854] to-[#0A273C] rounded-2xl p-5 text-white flex flex-col justify-between shadow-navy-glow">
                       <div>
-                        <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-teal-600/60 text-aqua-200 text-[10px] font-semibold mb-3 border border-teal-500/50">
-                          <Sparkles className="w-3 h-3 text-rose-300" />
+                        <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/10 text-cyan-200 text-[10px] font-semibold mb-3 border border-white/15">
+                          <Sparkles className="w-3 h-3 text-[#48B6B7]" />
                           <span>Manual Coordination</span>
                         </div>
                         <h5 className="font-serif font-bold text-base text-white mb-2">
                           Need Guidance on Choosing?
                         </h5>
-                        <p className="text-xs text-aqua-100 leading-relaxed mb-4">
+                        <p className="text-xs text-cyan-100 leading-relaxed mb-4">
                           Submit a confidential enquiry and our team will discuss your consultation requirements.
                         </p>
                       </div>
 
-                      <Button to="/book-a-session" variant="accent" size="sm" className="w-full justify-center">
+                      <Button to="/book-a-session" variant="cyan" size="sm" className="w-full justify-center">
                         Book a Session
                       </Button>
                     </div>
@@ -411,7 +412,7 @@ export default function Navbar() {
                 aria-expanded={activeDropdown === 'resources'}
               >
                 <span>Resources</span>
-                <ChevronDown className={`w-3.5 h-3.5 text-[#B7D1CC] transition-transform duration-200 ${activeDropdown === 'resources' ? 'rotate-180' : ''}`} />
+                <ChevronDown className={`w-3.5 h-3.5 text-[#48B6B7] transition-transform duration-200 ${activeDropdown === 'resources' ? 'rotate-180' : ''}`} />
               </button>
 
               {/* Resources Dropdown Panel */}
@@ -423,13 +424,13 @@ export default function Navbar() {
                       <Link
                         key={idx}
                         to={item.to}
-                        className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-aqua-100/60 transition-colors group"
+                        className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-cyan-50 transition-colors group"
                       >
-                        <div className="w-8 h-8 rounded-lg bg-teal-50 text-teal-700 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-teal-700 group-hover:text-white transition-colors">
+                        <div className="w-8 h-8 rounded-lg bg-cyan-100 text-[#0E3854] flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-[#48B6B7] group-hover:text-white transition-colors">
                           <Icon className="w-4 h-4" />
                         </div>
                         <div>
-                          <div className="text-xs font-semibold text-charcoal-800 group-hover:text-teal-700 transition-colors">
+                          <div className="text-xs font-semibold text-charcoal-800 group-hover:text-[#0E3854] transition-colors">
                             {item.title}
                           </div>
                           <div className="text-[11px] text-charcoal-500 leading-tight">
@@ -473,14 +474,28 @@ export default function Navbar() {
 
           </nav>
 
-          {/* Right Action CTA (Desktop) */}
-          <div className="hidden lg:flex items-center gap-3">
+          {/* Right Action Area (Desktop): Phone Call + Signature Cyan Pill Button */}
+          <div className="hidden lg:flex items-center gap-4">
+            {/* Phone link (From Image 2 top bar) */}
+            <a
+              href="tel:+919894635451"
+              className="hidden xl:flex items-center gap-2.5 text-left text-white group px-3 py-1.5 rounded-full hover:bg-white/10 transition-colors"
+            >
+              <div className="w-8 h-8 rounded-full bg-[#48B6B7]/20 border border-[#48B6B7] text-[#48B6B7] flex items-center justify-center group-hover:scale-105 transition-transform">
+                <Phone className="w-4 h-4" />
+              </div>
+              <div>
+                <span className="text-[10px] uppercase tracking-wider text-cyan-200 block font-medium leading-none">Call Us Now</span>
+                <span className="text-xs font-bold text-white tracking-wide block font-nav mt-0.5">+91 98946 35451</span>
+              </div>
+            </a>
+
             <Button
               to="/book-a-session"
-              variant="accent"
+              variant="cyan"
               size="md"
-              icon={CalendarCheck}
-              className="font-semibold shadow-rose-glow"
+              className="font-semibold shadow-cyan-glow"
+              showArrow={true}
             >
               Book a Session
             </Button>
@@ -488,13 +503,13 @@ export default function Navbar() {
 
           {/* Mobile Menu Toggle Button */}
           <div className="flex lg:hidden items-center gap-2">
-            <Button to="/book-a-session" variant="accent" size="sm" className="text-xs px-3 py-1.5 font-semibold">
+            <Button to="/book-a-session" variant="cyan" size="sm" className="text-xs px-3 py-1.5 font-semibold">
               Enquire
             </Button>
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-xl text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-[#B7D1CC]"
+              className="p-2 rounded-xl text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-[#48B6B7]"
               aria-label="Toggle Navigation Menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6 text-white" /> : <Menu className="w-6 h-6 text-white" />}
@@ -509,7 +524,7 @@ export default function Navbar() {
         <div className="fixed inset-0 z-50 lg:hidden">
           {/* Backdrop */}
           <div
-            className="fixed inset-0 bg-charcoal-900/60 backdrop-blur-sm transition-opacity"
+            className="fixed inset-0 bg-[#061A29]/70 backdrop-blur-sm transition-opacity"
             onClick={() => setMobileMenuOpen(false)}
           />
 
@@ -521,11 +536,11 @@ export default function Navbar() {
               {/* Drawer Header */}
               <div className="flex items-center justify-between pb-4 border-b border-softgrey-200">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-9 h-9 rounded-xl bg-teal-700 text-white flex items-center justify-center">
+                  <div className="w-9 h-9 rounded-xl bg-[#0E3854] text-[#48B6B7] flex items-center justify-center">
                     <HeartHandshake className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="text-base font-serif font-bold text-teal-800 leading-tight">
+                    <h3 className="text-base font-serif font-bold text-[#0E3854] leading-tight">
                       Sharmila MindCare
                     </h3>
                     <p className="text-[10px] text-charcoal-500 font-medium">Psychological Care &amp; Wellbeing</p>
@@ -535,7 +550,7 @@ export default function Navbar() {
                 <button
                   type="button"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="p-2 rounded-xl text-charcoal-600 hover:bg-aqua-50"
+                  className="p-2 rounded-xl text-charcoal-600 hover:bg-cyan-50"
                   aria-label="Close menu"
                 >
                   <X className="w-5 h-5" />
@@ -551,7 +566,7 @@ export default function Navbar() {
                   onClick={() => setMobileMenuOpen(false)}
                   className={({ isActive }) =>
                     `block px-4 py-2.5 rounded-xl text-sm font-semibold transition-colors ${
-                      isActive ? 'bg-aqua-100 text-teal-800' : 'text-charcoal-800 hover:bg-ivory-100'
+                      isActive ? 'bg-cyan-100 text-[#0E3854]' : 'text-charcoal-800 hover:bg-navy-50'
                     }`
                   }
                 >
@@ -563,20 +578,20 @@ export default function Navbar() {
                   <button
                     type="button"
                     onClick={() => toggleMobileAccordion('about')}
-                    className="w-full flex items-center justify-between px-4 py-2.5 rounded-xl text-sm font-semibold text-charcoal-800 hover:bg-ivory-100 transition-colors"
+                    className="w-full flex items-center justify-between px-4 py-2.5 rounded-xl text-sm font-semibold text-charcoal-800 hover:bg-navy-50 transition-colors"
                   >
                     <span>About Doctor</span>
-                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileAccordions.about ? 'rotate-180 text-teal-700' : ''}`} />
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileAccordions.about ? 'rotate-180 text-[#48B6B7]' : ''}`} />
                   </button>
 
                   {mobileAccordions.about && (
-                    <div className="pl-4 pr-2 py-1 space-y-1 bg-ivory-50/80 rounded-xl mb-1">
+                    <div className="pl-4 pr-2 py-1 space-y-1 bg-navy-50 rounded-xl mb-1">
                       {aboutDoctorLinks.map((item, idx) => (
                         <Link
                           key={idx}
                           to={item.to}
                           onClick={() => setMobileMenuOpen(false)}
-                          className="block px-3 py-2 text-xs font-medium text-charcoal-700 hover:text-teal-700 hover:bg-white rounded-lg transition-colors"
+                          className="block px-3 py-2 text-xs font-medium text-charcoal-700 hover:text-[#0E3854] hover:bg-white rounded-lg transition-colors"
                         >
                           {item.title}
                         </Link>
@@ -590,20 +605,20 @@ export default function Navbar() {
                   <button
                     type="button"
                     onClick={() => toggleMobileAccordion('services')}
-                    className="w-full flex items-center justify-between px-4 py-2.5 rounded-xl text-sm font-semibold text-charcoal-800 hover:bg-ivory-100 transition-colors"
+                    className="w-full flex items-center justify-between px-4 py-2.5 rounded-xl text-sm font-semibold text-charcoal-800 hover:bg-navy-50 transition-colors"
                   >
                     <span>Counselling Services</span>
-                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileAccordions.services ? 'rotate-180 text-teal-700' : ''}`} />
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileAccordions.services ? 'rotate-180 text-[#48B6B7]' : ''}`} />
                   </button>
 
                   {mobileAccordions.services && (
-                    <div className="pl-4 pr-2 py-1 space-y-1 bg-ivory-50/80 rounded-xl mb-1">
+                    <div className="pl-4 pr-2 py-1 space-y-1 bg-navy-50 rounded-xl mb-1">
                       {servicesList.map((svc, idx) => (
                         <Link
                           key={idx}
                           to={svc.to}
                           onClick={() => setMobileMenuOpen(false)}
-                          className="block px-3 py-2 text-xs font-medium text-charcoal-700 hover:text-teal-700 hover:bg-white rounded-lg transition-colors"
+                          className="block px-3 py-2 text-xs font-medium text-charcoal-700 hover:text-[#0E3854] hover:bg-white rounded-lg transition-colors"
                         >
                           {svc.title}
                         </Link>
@@ -617,20 +632,20 @@ export default function Navbar() {
                   <button
                     type="button"
                     onClick={() => toggleMobileAccordion('resources')}
-                    className="w-full flex items-center justify-between px-4 py-2.5 rounded-xl text-sm font-semibold text-charcoal-800 hover:bg-ivory-100 transition-colors"
+                    className="w-full flex items-center justify-between px-4 py-2.5 rounded-xl text-sm font-semibold text-charcoal-800 hover:bg-navy-50 transition-colors"
                   >
                     <span>Resources &amp; Guides</span>
-                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileAccordions.resources ? 'rotate-180 text-teal-700' : ''}`} />
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileAccordions.resources ? 'rotate-180 text-[#48B6B7]' : ''}`} />
                   </button>
 
                   {mobileAccordions.resources && (
-                    <div className="pl-4 pr-2 py-1 space-y-1 bg-ivory-50/80 rounded-xl mb-1">
+                    <div className="pl-4 pr-2 py-1 space-y-1 bg-navy-50 rounded-xl mb-1">
                       {resourcesLinks.map((item, idx) => (
                         <Link
                           key={idx}
                           to={item.to}
                           onClick={() => setMobileMenuOpen(false)}
-                          className="block px-3 py-2 text-xs font-medium text-charcoal-700 hover:text-teal-700 hover:bg-white rounded-lg transition-colors"
+                          className="block px-3 py-2 text-xs font-medium text-charcoal-700 hover:text-[#0E3854] hover:bg-white rounded-lg transition-colors"
                         >
                           {item.title}
                         </Link>
@@ -645,7 +660,7 @@ export default function Navbar() {
                   onClick={() => setMobileMenuOpen(false)}
                   className={({ isActive }) =>
                     `block px-4 py-2.5 rounded-xl text-sm font-semibold transition-colors ${
-                      isActive ? 'bg-aqua-100 text-teal-800' : 'text-charcoal-800 hover:bg-ivory-100'
+                      isActive ? 'bg-cyan-100 text-[#0E3854]' : 'text-charcoal-800 hover:bg-navy-50'
                     }`
                   }
                 >
@@ -658,7 +673,7 @@ export default function Navbar() {
                   onClick={() => setMobileMenuOpen(false)}
                   className={({ isActive }) =>
                     `block px-4 py-2.5 rounded-xl text-sm font-semibold transition-colors ${
-                      isActive ? 'bg-aqua-100 text-teal-800' : 'text-charcoal-800 hover:bg-ivory-100'
+                      isActive ? 'bg-cyan-100 text-[#0E3854]' : 'text-charcoal-800 hover:bg-navy-50'
                     }`
                   }
                 >
@@ -673,9 +688,10 @@ export default function Navbar() {
             <div className="pt-6 border-t border-softgrey-200 space-y-3">
               <Button
                 to="/book-a-session"
-                variant="accent"
-                className="w-full justify-center shadow-rose-glow font-semibold"
+                variant="cyan"
+                className="w-full justify-center shadow-cyan-glow font-semibold"
                 onClick={() => setMobileMenuOpen(false)}
+                showArrow={true}
               >
                 Book a Session Enquiry
               </Button>
@@ -694,9 +710,9 @@ export default function Navbar() {
                 <Link
                   to="/admin/login"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-[11px] text-charcoal-500 hover:text-teal-700 flex items-center justify-center gap-1 font-medium"
+                  className="text-[11px] text-charcoal-500 hover:text-[#0E3854] flex items-center justify-center gap-1 font-medium"
                 >
-                  <ShieldCheck className="w-3.5 h-3.5" />
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#48B6B7]" />
                   <span>Authorized Staff Portal</span>
                 </Link>
               </div>

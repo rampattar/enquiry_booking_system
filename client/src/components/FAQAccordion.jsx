@@ -45,23 +45,23 @@ export default function FAQAccordion() {
             key={idx}
             className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
               isOpen
-                ? 'bg-white border-teal-300 shadow-soft-md'
-                : 'bg-white/80 border-softgrey-200 hover:border-teal-200'
+                ? 'bg-white border-[#48B6B7] shadow-soft-md'
+                : 'bg-white/80 border-softgrey-200 hover:border-cyan-200'
             }`}
           >
             <button
               type="button"
               onClick={() => toggle(idx)}
-              className="w-full flex items-center justify-between p-5 text-left focus:outline-none focus:ring-2 focus:ring-teal-500 rounded-2xl"
+              className="w-full flex items-center justify-between p-5 text-left focus:outline-none focus:ring-2 focus:ring-[#48B6B7] rounded-2xl"
               aria-expanded={isOpen}
             >
               <span className={`text-sm sm:text-base font-serif font-bold transition-colors ${
-                isOpen ? 'text-teal-800' : 'text-charcoal-800'
+                isOpen ? 'text-[#0E3854]' : 'text-charcoal-800'
               }`}>
                 {faq.question}
               </span>
               <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 ml-4 transition-all duration-300 ${
-                isOpen ? 'bg-teal-700 text-white rotate-180' : 'bg-teal-50 text-teal-700'
+                isOpen ? 'bg-[#48B6B7] text-white rotate-180' : 'bg-cyan-50 text-[#0E3854]'
               }`}>
                 <ChevronDown className="w-4 h-4" />
               </div>
@@ -87,4 +87,3 @@ export default function FAQAccordion() {
     </div>
   );
 }
-

@@ -26,13 +26,13 @@ export default function Policies() {
           <p>
             At <strong>Sharmila MindCare</strong>, safeguarding your privacy and personal trust is our foremost ethical commitment. All communication, psychological assessments, discussions during sessions, and clinical records are treated with the highest degree of confidentiality under professional psychology codes of ethics.
           </p>
-          <h4 className="text-base font-serif font-bold text-teal-900 pt-2">
+          <h4 className="text-base font-serif font-bold text-[#0E3854] pt-2">
             Scope of Confidentiality
           </h4>
           <p>
             Information shared during individual, marital, or family sessions will not be disclosed to any third party, employer, or family member without your explicit prior written or documented consent.
           </p>
-          <h4 className="text-base font-serif font-bold text-teal-900 pt-2">
+          <h4 className="text-base font-serif font-bold text-[#0E3854] pt-2">
             Standard Ethical Exceptions to Confidentiality
           </h4>
           <p>
@@ -59,7 +59,7 @@ export default function Policies() {
           <p>
             This website collects minimal identifying information necessary solely for operational appointment coordination and communication.
           </p>
-          <h4 className="text-base font-serif font-bold text-teal-900 pt-2">
+          <h4 className="text-base font-serif font-bold text-[#0E3854] pt-2">
             Information We Collect
           </h4>
           <ul className="list-disc pl-5 space-y-1.5 text-xs sm:text-sm text-charcoal-600">
@@ -68,13 +68,13 @@ export default function Policies() {
             <li><strong>Consultation Preference:</strong> Preferred mode (Online or In-person/Offline) and broad service of interest.</li>
             <li><strong>Consent:</strong> Explicit user confirmation authorizing our team to contact you.</li>
           </ul>
-          <h4 className="text-base font-serif font-bold text-teal-900 pt-2">
+          <h4 className="text-base font-serif font-bold text-[#0E3854] pt-2">
             What We Do NOT Collect Online
           </h4>
           <p>
             We do <strong>not</strong> solicit or store detailed psychiatric medical histories, diagnoses, or sensitive personal trauma details on public web forms. Such clinical discussions occur solely inside private consultations with Dr. Sharmila Siraj.
           </p>
-          <h4 className="text-base font-serif font-bold text-teal-900 pt-2">
+          <h4 className="text-base font-serif font-bold text-[#0E3854] pt-2">
             Data Storage &amp; Access
           </h4>
           <p>
@@ -90,10 +90,10 @@ export default function Policies() {
       title: 'Appointment Confirmation Policy',
       content: (
         <div className="space-y-4 text-sm text-charcoal-700 leading-relaxed">
-          <div className="bg-teal-50 border border-teal-200 p-4 rounded-2xl text-xs sm:text-sm text-teal-900">
+          <div className="bg-cyan-50 border border-cyan-200 p-4 rounded-2xl text-xs sm:text-sm text-[#0E3854]">
             <strong>Key Distinction:</strong> Sharmila MindCare operates an enquiry-based appointment coordination system, not an automatic instant booking engine.
           </div>
-          <h4 className="text-base font-serif font-bold text-teal-900 pt-2">
+          <h4 className="text-base font-serif font-bold text-[#0E3854] pt-2">
             The Confirmation Workflow
           </h4>
           <ol className="list-decimal pl-5 space-y-2 text-xs sm:text-sm text-charcoal-600">
@@ -118,13 +118,13 @@ export default function Policies() {
           <p>
             We understand that unforeseen events and personal emergencies arise. Because session times are dedicated exclusively to each patient, we request reasonable advance notice for any schedule adjustments.
           </p>
-          <h4 className="text-base font-serif font-bold text-teal-900 pt-2">
+          <h4 className="text-base font-serif font-bold text-[#0E3854] pt-2">
             Rescheduling Your Session
           </h4>
           <p>
             If you need to reschedule your confirmed appointment, please inform our coordination helpline via phone or WhatsApp as early as possible. Our team will do their utmost to offer you the next available consultation opening that fits Dr. Sharmila Siraj&apos;s schedule.
           </p>
-          <h4 className="text-base font-serif font-bold text-teal-900 pt-2">
+          <h4 className="text-base font-serif font-bold text-[#0E3854] pt-2">
             Cancellation Notice
           </h4>
           <p>
@@ -143,7 +143,7 @@ export default function Policies() {
           <p>
             For clients residing outside Madurai or unable to visit in person, video consultations are available via secure tele-consultation platforms (Google Meet / Zoom).
           </p>
-          <h4 className="text-base font-serif font-bold text-teal-900 pt-2">
+          <h4 className="text-base font-serif font-bold text-[#0E3854] pt-2">
             Client Preparation for Online Sessions
           </h4>
           <ul className="list-disc pl-5 space-y-1.5 text-xs sm:text-sm text-charcoal-600">
@@ -164,16 +164,16 @@ export default function Policies() {
           <p>
             Consultation charges vary depending on the nature of the service (Individual Counselling, Marital Counselling, Psychological Assessment, or Behavioural Training) and session duration.
           </p>
-          <div className="bg-ivory-50 border border-softgrey-200 p-4 rounded-2xl text-xs text-charcoal-700">
+          <div className="bg-ice-50 border border-softgrey-200 p-4 rounded-2xl text-xs text-charcoal-700">
             <strong>Transparent Practice Note:</strong> Consultation fees are communicated clearly by our coordination team during the follow-up call prior to appointment confirmation. No hidden charges are applied.
           </div>
-          <h4 className="text-base font-serif font-bold text-teal-900 pt-2">
+          <h4 className="text-base font-serif font-bold text-[#0E3854] pt-2">
             Accepted Payment Methods
           </h4>
           <p className="text-xs sm:text-sm text-charcoal-600">
             Payment can be completed via standard digital methods (UPI, GPay, PhonePe, Bank Transfer) for online consultations or in-person payment at the consultation venue for offline sessions.
           </p>
-          <h4 className="text-base font-serif font-bold text-teal-900 pt-2">
+          <h4 className="text-base font-serif font-bold text-[#0E3854] pt-2">
             Refunds &amp; Policy Adjustments
           </h4>
           <p className="text-xs sm:text-sm text-charcoal-600">
@@ -198,7 +198,7 @@ export default function Policies() {
               Sharmila MindCare provides scheduled outpatient psychological counselling and consultation. We do <strong>not</strong> operate a 24-hour emergency room, psychiatric inpatient unit, or immediate crisis hotline.
             </p>
           </div>
-          <h4 className="text-base font-serif font-bold text-teal-900 pt-2">
+          <h4 className="text-base font-serif font-bold text-[#0E3854] pt-2">
             Immediate Emergency Resources in India
           </h4>
           <ul className="list-disc pl-5 space-y-2 text-xs sm:text-sm text-charcoal-700">
@@ -224,8 +224,8 @@ export default function Policies() {
         transition={{ duration: 0.5 }}
         className="max-w-3xl space-y-3"
       >
-        <span className="badge-teal">Practice Guidelines &amp; Compliance</span>
-        <h1 className="text-4xl sm:text-5xl font-serif font-bold text-teal-900 tracking-tight">
+        <span className="badge-navy">Practice Guidelines &amp; Compliance</span>
+        <h1 className="text-4xl sm:text-5xl font-serif font-bold text-[#0E3854] tracking-tight">
           Policies &amp; Patient Guidelines
         </h1>
         <p className="text-sm sm:text-base text-charcoal-600 leading-relaxed">
@@ -247,15 +247,15 @@ export default function Policies() {
                 onClick={() => setActiveTab(item.id)}
                 className={`w-full flex items-center justify-between p-3.5 rounded-2xl text-left text-xs sm:text-sm font-medium font-nav transition-all ${
                   isActive
-                    ? 'bg-teal-700 text-white font-semibold shadow-teal-glow'
-                    : 'text-charcoal-700 hover:bg-aqua-50'
+                    ? 'bg-[#0E3854] text-white font-semibold shadow-navy-glow'
+                    : 'text-charcoal-700 hover:bg-cyan-50'
                 }`}
               >
                 <div className="flex items-center gap-3">
-                  <Icon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-teal-700'}`} />
+                  <Icon className={`w-4 h-4 ${isActive ? 'text-[#48B6B7]' : 'text-[#0E3854]'}`} />
                   <span>{item.name}</span>
                 </div>
-                <ChevronRight className={`w-4 h-4 ${isActive ? 'text-white' : 'text-charcoal-400'}`} />
+                <ChevronRight className={`w-4 h-4 ${isActive ? 'text-[#48B6B7]' : 'text-charcoal-400'}`} />
               </button>
             );
           })}
@@ -270,10 +270,10 @@ export default function Policies() {
           className="lg:col-span-8 bg-white rounded-3xl p-6 sm:p-10 border border-softgrey-200 shadow-soft"
         >
           <div className="pb-6 mb-6 border-b border-softgrey-200">
-            <span className="badge-aqua mb-2 inline-block">
+            <span className="badge-cyan mb-2 inline-block">
               Official Practice Policy
             </span>
-            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-teal-900">
+            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#0E3854]">
               {currentPolicy.title}
             </h2>
           </div>

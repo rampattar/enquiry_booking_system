@@ -78,8 +78,8 @@ export default function Resources() {
           transition={{ duration: 0.5 }}
           className="max-w-3xl mx-auto space-y-4"
         >
-          <span className="badge-teal">Patient Education &amp; Self-Care</span>
-          <h1 className="text-4xl sm:text-5xl font-serif font-bold text-teal-800 tracking-tight">
+          <span className="badge-navy">Patient Education &amp; Self-Care</span>
+          <h1 className="text-4xl sm:text-5xl font-serif font-bold text-[#0E3854] tracking-tight">
             Psychological Resources &amp; Wellness Guides
           </h1>
           <p className="text-sm sm:text-base text-charcoal-600 leading-relaxed">
@@ -104,20 +104,20 @@ export default function Resources() {
             >
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-6 border-b border-softgrey-200">
                 <div className="flex items-center gap-3.5">
-                  <div className="w-12 h-12 rounded-2xl bg-teal-50 text-teal-700 flex items-center justify-center shrink-0">
-                    <Icon className="w-6 h-6" />
+                  <div className="w-12 h-12 rounded-2xl bg-cyan-100 text-[#0E3854] flex items-center justify-center shrink-0">
+                    <Icon className="w-6 h-6 text-[#48B6B7]" />
                   </div>
                   <div>
-                    <h2 className="text-xl sm:text-2xl font-serif font-bold text-teal-900">
+                    <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#0E3854]">
                       {sec.title}
                     </h2>
-                    <p className="text-xs sm:text-sm text-charcoal-500 font-medium">
+                    <p className="text-xs sm:text-sm text-charcoal-500 font-medium font-nav">
                       {sec.subtitle}
                     </p>
                   </div>
                 </div>
 
-                <span className="badge-aqua self-start sm:self-auto text-xs">
+                <span className="badge-cyan self-start sm:self-auto text-xs font-nav">
                   {sec.badge}
                 </span>
               </div>
@@ -125,7 +125,7 @@ export default function Resources() {
               <div className="space-y-4 text-xs sm:text-sm text-charcoal-700 leading-relaxed">
                 {sec.content.map((para, pIdx) => (
                   <div key={pIdx} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-4 h-4 text-teal-600 shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-[#48B6B7] shrink-0 mt-0.5" />
                     <span>{para}</span>
                   </div>
                 ))}
@@ -135,7 +135,7 @@ export default function Resources() {
                 <span className="text-xs text-charcoal-500 italic">
                   Informational guidance. For clinical support, request a confidential consultation.
                 </span>
-                <Button to="/book-a-session" variant="outline" size="sm" icon={ArrowRight} iconPosition="right">
+                <Button to="/book-a-session" variant="cyan" size="sm" showArrow={true}>
                   Enquire for Personal Guidance
                 </Button>
               </div>
@@ -147,8 +147,8 @@ export default function Resources() {
       {/* 3. Frequently Asked Questions Section */}
       <section id="faqs" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
         <div className="text-center max-w-3xl mx-auto mb-10 space-y-3">
-          <span className="badge-teal">Practice FAQ</span>
-          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-teal-900">
+          <span className="badge-navy">Practice FAQ</span>
+          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0E3854]">
             Frequently Asked Questions
           </h2>
           <p className="text-sm text-charcoal-600">
@@ -161,15 +161,15 @@ export default function Resources() {
 
       {/* 4. Bottom CTA */}
       <section className="max-w-4xl mx-auto px-4 text-center">
-        <div className="bg-gradient-to-br from-teal-800 to-teal-950 rounded-3xl p-8 sm:p-12 text-white shadow-teal-glow space-y-4">
+        <div className="bg-gradient-to-br from-[#0E3854] via-[#0E3854] to-[#0A273C] rounded-3xl p-8 sm:p-12 text-white shadow-navy-glow space-y-4">
           <h3 className="text-2xl sm:text-3xl font-serif font-bold text-white">
             Have a Specific Question for Our Care Team?
           </h3>
-          <p className="text-sm text-aqua-100 max-w-lg mx-auto leading-relaxed">
+          <p className="text-sm text-cyan-100 max-w-lg mx-auto leading-relaxed font-light">
             Our team is available to assist you with appointment enquiries, language preferences, and consultation coordination.
           </p>
           <div className="pt-3 flex flex-wrap items-center justify-center gap-4">
-            <Button to="/book-a-session" variant="accent" size="md">
+            <Button to="/book-a-session" variant="cyan" size="md" showArrow={true}>
               Submit an Enquiry
             </Button>
             <Button to="/contact" variant="secondary" size="md">
@@ -182,4 +182,3 @@ export default function Resources() {
     </div>
   );
 }
-

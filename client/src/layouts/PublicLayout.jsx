@@ -6,7 +6,7 @@ import { MessageSquare } from 'lucide-react';
 
 export default function PublicLayout() {
   return (
-    <div className="min-h-screen flex flex-col bg-ivory-100 text-charcoal-800 font-sans antialiased selection:bg-aqua-200 selection:text-teal-900">
+    <div className="min-h-screen flex flex-col bg-[#FAFCFC] text-charcoal-800 font-sans antialiased selection:bg-[#48B6B7] selection:text-white">
       {/* Main Navigation Bar */}
       <Navbar />
 

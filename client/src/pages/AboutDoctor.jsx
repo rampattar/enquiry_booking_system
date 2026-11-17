@@ -120,27 +120,27 @@ export default function AboutDoctor() {
             transition={{ duration: 0.5 }}
             className="lg:col-span-7 space-y-6"
           >
-            <span className="badge-teal">Consultant Psychologist Profile</span>
+            <span className="badge-navy">Consultant Psychologist Profile</span>
             
-            <h1 className="text-4xl sm:text-5xl font-serif font-bold text-teal-900 tracking-tight">
+            <h1 className="text-4xl sm:text-5xl font-serif font-bold text-[#0E3854] tracking-tight">
               Dr. Sharmila Siraj
             </h1>
 
             <div className="space-y-1.5">
-              <p className="text-lg font-serif text-teal-700 font-semibold">
+              <p className="text-lg font-serif text-[#2E8485] font-semibold">
                 Consultant Psychologist | Counsellor | Interpersonal Skills Trainer
               </p>
-              <div className="flex flex-wrap items-center gap-4 text-xs text-charcoal-600 pt-1 font-medium">
+              <div className="flex flex-wrap items-center gap-4 text-xs text-charcoal-600 pt-1 font-medium font-nav">
                 <span className="flex items-center gap-1.5">
-                  <MapPin className="w-3.5 h-3.5 text-teal-600" />
+                  <MapPin className="w-3.5 h-3.5 text-[#48B6B7]" />
                   Madurai, Tamil Nadu, India
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <Languages className="w-3.5 h-3.5 text-teal-600" />
+                  <Languages className="w-3.5 h-3.5 text-[#48B6B7]" />
                   English &amp; தமிழ்
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <Award className="w-3.5 h-3.5 text-rose-500" />
+                  <Award className="w-3.5 h-3.5 text-[#0E3854]" />
                   12 Years at Ahana Hospitals
                 </span>
               </div>
@@ -148,10 +148,10 @@ export default function AboutDoctor() {
 
             {/* Verbatim Clinical Statement */}
             <div className="bg-white rounded-3xl p-6 sm:p-8 border border-softgrey-200 shadow-soft space-y-4">
-              <h2 className="text-xs font-serif font-bold text-teal-800 uppercase tracking-wider">
+              <h2 className="text-xs font-serif font-bold text-[#0E3854] uppercase tracking-wider font-nav">
                 Clinical Philosophy &amp; Approach
               </h2>
-              <blockquote className="text-sm sm:text-base text-charcoal-700 leading-relaxed italic border-l-4 border-teal-600 pl-4">
+              <blockquote className="text-sm sm:text-base text-charcoal-700 leading-relaxed italic border-l-4 border-[#48B6B7] pl-4">
                 &ldquo;I am a Consultant Psychologist, Counsellor and Trainer with 12 years of clinical experience at Ahana Hospitals, Madurai.
                 <br /><br />
                 I help individuals, couples, children and families with counselling, behavioural support and life-skills education. My focus is marital counselling and stress counselling.
@@ -161,10 +161,10 @@ export default function AboutDoctor() {
             </div>
 
             <div className="flex flex-wrap gap-4 pt-2">
-              <Button to="/book-a-session" variant="primary" icon={CalendarCheck}>
+              <Button to="/book-a-session" variant="cyan" size="md" showArrow={true}>
                 Request Consultation Enquiry
               </Button>
-              <Button to="/therapies" variant="outline">
+              <Button to="/therapies" variant="secondary" size="md">
                 Explore Counselling Therapies
               </Button>
             </div>
@@ -193,8 +193,8 @@ export default function AboutDoctor() {
             viewport={{ once: true }}
             className="max-w-3xl mb-12 space-y-3"
           >
-            <span className="badge-teal">Academic Foundation</span>
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-teal-900">
+            <span className="badge-navy">Academic Foundation</span>
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0E3854]">
               Educational Qualifications
             </h2>
             <p className="text-sm text-charcoal-600">
@@ -202,7 +202,7 @@ export default function AboutDoctor() {
             </p>
           </motion.div>
 
-          <div className="relative border-l-2 border-aqua-300 ml-4 sm:ml-8 pl-6 sm:pl-10 space-y-8">
+          <div className="relative border-l-2 border-[#48B6B7]/40 ml-4 sm:ml-8 pl-6 sm:pl-10 space-y-8">
             {educationTimeline.map((item, index) => (
               <motion.div
                 key={index}
@@ -214,21 +214,21 @@ export default function AboutDoctor() {
               >
                 {/* Timeline node */}
                 <div className={`absolute -left-[31px] sm:-left-[47px] top-1.5 w-5 h-5 rounded-full border-4 border-white transition-all ${
-                  item.current ? 'bg-rose-400 ring-4 ring-rose-100' : 'bg-teal-700 ring-2 ring-teal-100'
+                  item.current ? 'bg-[#48B6B7] ring-4 ring-cyan-100' : 'bg-[#0E3854] ring-2 ring-navy-100'
                 }`} />
 
-                <div className="bg-ivory-50 rounded-2xl p-6 border border-softgrey-200 hover:border-teal-300 shadow-soft transition-all">
+                <div className="bg-ice-50 rounded-2xl p-6 border border-softgrey-200 hover:border-[#48B6B7] shadow-soft transition-all">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
-                    <h3 className="text-lg font-serif font-bold text-teal-900">
+                    <h3 className="text-lg font-serif font-bold text-[#0E3854]">
                       {item.degree}
                     </h3>
                     {item.status && (
-                      <span className="badge-rose self-start sm:self-auto font-medium">
+                      <span className="badge-cyan self-start sm:self-auto font-medium font-nav">
                         {item.status}
                       </span>
                     )}
                   </div>
-                  <div className="text-xs font-semibold text-teal-700 mb-2 font-nav">
+                  <div className="text-xs font-semibold text-[#2E8485] mb-2 font-nav">
                     {item.institution}
                   </div>
                   <p className="text-xs sm:text-sm text-charcoal-600 leading-relaxed">
@@ -239,7 +239,7 @@ export default function AboutDoctor() {
             ))}
           </div>
 
-          <div className="mt-8 bg-aqua-50 rounded-2xl p-4 border border-aqua-200 text-xs text-charcoal-700">
+          <div className="mt-8 bg-cyan-50 rounded-2xl p-4 border border-cyan-200 text-xs text-charcoal-700">
             <strong>Transparency Notice:</strong> Dr. Sharmila Siraj&apos;s doctoral degree is currently in progress at Madurai Kamaraj University focusing on smartphone addiction. All qualifications are verified and represented accurately without exaggeration.
           </div>
 
@@ -255,8 +255,8 @@ export default function AboutDoctor() {
           viewport={{ once: true }}
           className="max-w-3xl mb-12 space-y-3"
         >
-          <span className="badge-teal">Clinical &amp; Institutional Career</span>
-          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-teal-900">
+          <span className="badge-navy">Clinical &amp; Institutional Career</span>
+          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0E3854]">
             Professional Experience
           </h2>
           <p className="text-sm text-charcoal-600">
@@ -274,24 +274,24 @@ export default function AboutDoctor() {
               transition={{ duration: 0.4, delay: idx * 0.08 }}
               className={`rounded-3xl p-6 sm:p-8 border shadow-soft transition-all ${
                 exp.highlight 
-                  ? 'bg-gradient-to-br from-teal-50/70 to-white border-teal-300 ring-1 ring-teal-200' 
+                  ? 'bg-gradient-to-br from-cyan-50/70 to-white border-cyan-300 ring-1 ring-cyan-200' 
                   : 'bg-white border-softgrey-200'
               }`}
             >
               <div className="flex items-center justify-between gap-2 mb-3">
-                <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${
-                  exp.highlight ? 'bg-teal-700 text-white' : 'bg-aqua-100 text-teal-900'
+                <span className={`text-xs font-semibold px-2.5 py-1 rounded-full font-nav ${
+                  exp.highlight ? 'bg-[#0E3854] text-white' : 'bg-cyan-100 text-[#0E3854]'
                 }`}>
                   {exp.period}
                 </span>
-                <Briefcase className="w-4 h-4 text-teal-700" />
+                <Briefcase className="w-4 h-4 text-[#48B6B7]" />
               </div>
 
-              <h3 className="text-lg font-serif font-bold text-teal-900 mb-1">
+              <h3 className="text-lg font-serif font-bold text-[#0E3854] mb-1">
                 {exp.role}
               </h3>
               
-              <div className="text-xs font-semibold text-teal-700 mb-3 font-nav">
+              <div className="text-xs font-semibold text-[#2E8485] mb-3 font-nav">
                 {exp.organization}
               </div>
 
@@ -305,7 +305,7 @@ export default function AboutDoctor() {
 
 
       {/* 4. Core Areas of Expertise */}
-      <section id="expertise" className="bg-paleaqua py-16 sm:py-20 border-y border-softgrey-200 scroll-mt-24">
+      <section id="expertise" className="bg-ice-100 py-16 sm:py-20 border-y border-softgrey-200 scroll-mt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
@@ -313,8 +313,8 @@ export default function AboutDoctor() {
             viewport={{ once: true }}
             className="max-w-3xl mx-auto text-center mb-12 space-y-3"
           >
-            <span className="badge-teal">Core Focus</span>
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-teal-900">
+            <span className="badge-navy">Core Focus</span>
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0E3854]">
               Core Areas of Expertise
             </h2>
             <p className="text-sm text-charcoal-600">
@@ -330,10 +330,10 @@ export default function AboutDoctor() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: idx * 0.05 }}
-                className="bg-white rounded-2xl p-4 sm:p-5 border border-softgrey-200 shadow-soft flex items-center gap-3.5 hover:border-teal-300 transition-colors"
+                className="bg-white rounded-2xl p-4 sm:p-5 border border-softgrey-200 shadow-soft flex items-center gap-3.5 hover:border-[#48B6B7] transition-colors"
               >
-                <div className="w-8 h-8 rounded-xl bg-teal-50 text-teal-700 flex items-center justify-center shrink-0">
-                  <CheckCircle2 className="w-4 h-4" />
+                <div className="w-8 h-8 rounded-xl bg-cyan-100 text-[#2E8485] flex items-center justify-center shrink-0">
+                  <CheckCircle2 className="w-4 h-4 text-[#48B6B7]" />
                 </div>
                 <span className="text-sm font-serif font-bold text-charcoal-800">
                   {area}
@@ -353,8 +353,8 @@ export default function AboutDoctor() {
           viewport={{ once: true }}
           className="max-w-3xl mb-12 space-y-3"
         >
-          <span className="badge-rose">Continuing Professional Development</span>
-          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-teal-900">
+          <span className="badge-navy">Continuing Professional Development</span>
+          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0E3854]">
             Professional Training &amp; Certifications
           </h2>
           <p className="text-sm text-charcoal-600">
@@ -370,9 +370,9 @@ export default function AboutDoctor() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.3, delay: index * 0.04 }}
-              className="bg-white rounded-2xl p-4 sm:p-5 border border-softgrey-200 shadow-xs flex items-start gap-3 hover:border-teal-300 transition-colors"
+              className="bg-white rounded-2xl p-4 sm:p-5 border border-softgrey-200 shadow-xs flex items-start gap-3 hover:border-[#48B6B7] transition-colors"
             >
-              <Award className="w-5 h-5 text-rose-400 shrink-0 mt-0.5" />
+              <Award className="w-5 h-5 text-[#48B6B7] shrink-0 mt-0.5" />
               <div>
                 <h3 className="text-xs sm:text-sm font-medium text-charcoal-800 leading-snug">
                   {cert}
@@ -386,15 +386,15 @@ export default function AboutDoctor() {
 
       {/* 6. Closing Action Box */}
       <section className="max-w-4xl mx-auto px-4 text-center">
-        <div className="bg-teal-50/90 rounded-3xl p-8 sm:p-12 border border-teal-200 space-y-4">
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-teal-900">
+        <div className="bg-ice-100 rounded-3xl p-8 sm:p-12 border border-softgrey-200 space-y-4">
+          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#0E3854]">
             Schedule a Confidential Consultation Enquiry
           </h2>
           <p className="text-sm text-charcoal-600 max-w-xl mx-auto leading-relaxed">
             Our team will reach out to understand your situation, answer initial questions, and coordinate an appointment based on Dr. Sharmila&apos;s schedule.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
-            <Button to="/book-a-session" variant="primary" size="md">
+            <Button to="/book-a-session" variant="cyan" size="md" showArrow={true}>
               Book a Session Enquiry
             </Button>
             <Button to="/contact" variant="secondary" size="md">
