@@ -19,6 +19,7 @@ export default {
           700: '#174C4B', // Primary Brand Deep Teal
           800: '#123D3C',
           900: '#0C2B2A',
+          950: '#081E1D', // Extra Dark Teal
         },
         // Secondary: Warm Ivory (#F7F5F0)
         ivory: {

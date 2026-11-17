@@ -42,7 +42,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      setScrolled(window.scrollY > 15);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -75,7 +75,7 @@ export default function Navbar() {
   const handleMouseLeave = () => {
     timeoutRef.current = setTimeout(() => {
       setActiveDropdown(null);
-    }, 220);
+    }, 200);
   };
 
   const toggleMobileAccordion = (key) => {
@@ -204,10 +204,8 @@ export default function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
-        scrolled
-          ? 'bg-teal-950/98 backdrop-blur-md shadow-lg border-b border-teal-800/80 py-3'
-          : 'bg-teal-900 border-b border-teal-800 py-3.5 shadow-md'
+      className={`sticky top-0 z-50 w-full bg-[#174C4B] border-b border-[#123D3C] transition-shadow duration-200 ${
+        scrolled ? 'shadow-xl py-3' : 'shadow-md py-4'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -216,16 +214,16 @@ export default function Navbar() {
           {/* Brand Logo & Name */}
           <Link
             to="/"
-            className="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-aqua-300 rounded-xl p-1"
+            className="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-[#B7D1CC] rounded-xl p-1"
           >
-            <div className="w-11 h-11 rounded-2xl bg-teal-800 group-hover:bg-teal-700 text-aqua-300 border border-teal-700/80 flex items-center justify-center shadow-inner transition-all duration-300 group-hover:scale-105 shrink-0">
+            <div className="w-11 h-11 rounded-2xl bg-white/10 group-hover:bg-white/15 text-[#B7D1CC] border border-white/15 flex items-center justify-center transition-all duration-300 group-hover:scale-105 shrink-0">
               <HeartHandshake className="w-6 h-6" />
             </div>
             <div>
               <span className="text-xl sm:text-2xl font-serif font-bold tracking-tight text-white block leading-tight">
                 Sharmila MindCare
               </span>
-              <span className="text-[10px] sm:text-[11px] font-sans uppercase tracking-wider text-aqua-200/80 block font-medium">
+              <span className="text-[10px] sm:text-[11px] font-sans uppercase tracking-wider text-[#B7D1CC] block font-medium">
                 Psychological Care &amp; Wellbeing
               </span>
             </div>
@@ -240,8 +238,8 @@ export default function Navbar() {
               className={({ isActive }) =>
                 `px-3.5 py-2 rounded-full text-sm font-medium font-nav transition-colors ${
                   isActive
-                    ? 'text-white bg-teal-800 font-semibold shadow-inner border border-teal-700/60'
-                    : 'text-ivory-100/90 hover:text-white hover:bg-white/10'
+                    ? 'text-white bg-white/20 font-semibold shadow-inner border border-white/25'
+                    : 'text-white/90 hover:text-white hover:bg-white/10'
                 }`
               }
             >
@@ -259,18 +257,18 @@ export default function Navbar() {
                 onClick={() => setActiveDropdown(activeDropdown === 'about' ? null : 'about')}
                 className={`px-3.5 py-2 rounded-full text-sm font-medium font-nav flex items-center gap-1.5 transition-colors ${
                   location.pathname.startsWith('/about') || activeDropdown === 'about'
-                    ? 'text-white bg-teal-800 font-semibold shadow-inner border border-teal-700/60'
-                    : 'text-ivory-100/90 hover:text-white hover:bg-white/10'
+                    ? 'text-white bg-white/20 font-semibold shadow-inner border border-white/25'
+                    : 'text-white/90 hover:text-white hover:bg-white/10'
                 }`}
                 aria-expanded={activeDropdown === 'about'}
               >
                 <span>About Doctor</span>
-                <ChevronDown className={`w-3.5 h-3.5 text-aqua-300 transition-transform duration-200 ${activeDropdown === 'about' ? 'rotate-180' : ''}`} />
+                <ChevronDown className={`w-3.5 h-3.5 text-[#B7D1CC] transition-transform duration-200 ${activeDropdown === 'about' ? 'rotate-180' : ''}`} />
               </button>
 
               {/* About Dropdown Panel */}
               {activeDropdown === 'about' && (
-                <div className="absolute top-full left-0 mt-2 w-80 bg-white rounded-2xl shadow-soft-lg border border-softgrey-200 p-2.5 animate-slide-up z-50">
+                <div className="absolute top-full left-0 mt-2 w-80 bg-white text-charcoal-800 rounded-2xl shadow-2xl border border-softgrey-200 p-2.5 animate-slide-up z-50">
                   {aboutDoctorLinks.map((item, idx) => {
                     const Icon = item.icon;
                     return (
@@ -308,18 +306,18 @@ export default function Navbar() {
                 onClick={() => setActiveDropdown(activeDropdown === 'services' ? null : 'services')}
                 className={`px-3.5 py-2 rounded-full text-sm font-medium font-nav flex items-center gap-1.5 transition-colors ${
                   location.pathname.startsWith('/therapies') || activeDropdown === 'services'
-                    ? 'text-white bg-teal-800 font-semibold shadow-inner border border-teal-700/60'
-                    : 'text-ivory-100/90 hover:text-white hover:bg-white/10'
+                    ? 'text-white bg-white/20 font-semibold shadow-inner border border-white/25'
+                    : 'text-white/90 hover:text-white hover:bg-white/10'
                 }`}
                 aria-expanded={activeDropdown === 'services'}
               >
                 <span>Services</span>
-                <ChevronDown className={`w-3.5 h-3.5 text-aqua-300 transition-transform duration-200 ${activeDropdown === 'services' ? 'rotate-180' : ''}`} />
+                <ChevronDown className={`w-3.5 h-3.5 text-[#B7D1CC] transition-transform duration-200 ${activeDropdown === 'services' ? 'rotate-180' : ''}`} />
               </button>
 
               {/* Mega Menu Panel */}
               {activeDropdown === 'services' && (
-                <div className="fixed left-1/2 -translate-x-1/2 top-[68px] w-[95vw] max-w-5xl bg-white rounded-3xl shadow-soft-lg border border-softgrey-200 p-6 xl:p-8 animate-slide-up z-50">
+                <div className="fixed left-1/2 -translate-x-1/2 top-[68px] w-[95vw] max-w-5xl bg-white text-charcoal-800 rounded-3xl shadow-2xl border border-softgrey-200 p-6 xl:p-8 animate-slide-up z-50">
                   <div className="grid grid-cols-12 gap-8 items-stretch">
                     
                     {/* Left Column: Intro */}
@@ -407,18 +405,18 @@ export default function Navbar() {
                 onClick={() => setActiveDropdown(activeDropdown === 'resources' ? null : 'resources')}
                 className={`px-3.5 py-2 rounded-full text-sm font-medium font-nav flex items-center gap-1.5 transition-colors ${
                   location.pathname.startsWith('/resources') || activeDropdown === 'resources'
-                    ? 'text-white bg-teal-800 font-semibold shadow-inner border border-teal-700/60'
-                    : 'text-ivory-100/90 hover:text-white hover:bg-white/10'
+                    ? 'text-white bg-white/20 font-semibold shadow-inner border border-white/25'
+                    : 'text-white/90 hover:text-white hover:bg-white/10'
                 }`}
                 aria-expanded={activeDropdown === 'resources'}
               >
                 <span>Resources</span>
-                <ChevronDown className={`w-3.5 h-3.5 text-aqua-300 transition-transform duration-200 ${activeDropdown === 'resources' ? 'rotate-180' : ''}`} />
+                <ChevronDown className={`w-3.5 h-3.5 text-[#B7D1CC] transition-transform duration-200 ${activeDropdown === 'resources' ? 'rotate-180' : ''}`} />
               </button>
 
               {/* Resources Dropdown Panel */}
               {activeDropdown === 'resources' && (
-                <div className="absolute top-full left-0 mt-2 w-80 bg-white rounded-2xl shadow-soft-lg border border-softgrey-200 p-2.5 animate-slide-up z-50">
+                <div className="absolute top-full left-0 mt-2 w-80 bg-white text-charcoal-800 rounded-2xl shadow-2xl border border-softgrey-200 p-2.5 animate-slide-up z-50">
                   {resourcesLinks.map((item, idx) => {
                     const Icon = item.icon;
                     return (
@@ -451,8 +449,8 @@ export default function Navbar() {
               className={({ isActive }) =>
                 `px-3.5 py-2 rounded-full text-sm font-medium font-nav transition-colors ${
                   isActive
-                    ? 'text-white bg-teal-800 font-semibold shadow-inner border border-teal-700/60'
-                    : 'text-ivory-100/90 hover:text-white hover:bg-white/10'
+                    ? 'text-white bg-white/20 font-semibold shadow-inner border border-white/25'
+                    : 'text-white/90 hover:text-white hover:bg-white/10'
                 }`
               }
             >
@@ -465,8 +463,8 @@ export default function Navbar() {
               className={({ isActive }) =>
                 `px-3.5 py-2 rounded-full text-sm font-medium font-nav transition-colors ${
                   isActive
-                    ? 'text-white bg-teal-800 font-semibold shadow-inner border border-teal-700/60'
-                    : 'text-ivory-100/90 hover:text-white hover:bg-white/10'
+                    ? 'text-white bg-white/20 font-semibold shadow-inner border border-white/25'
+                    : 'text-white/90 hover:text-white hover:bg-white/10'
                 }`
               }
             >
@@ -496,7 +494,7 @@ export default function Navbar() {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-xl text-ivory-100 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-aqua-300"
+              className="p-2 rounded-xl text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-[#B7D1CC]"
               aria-label="Toggle Navigation Menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6 text-white" /> : <Menu className="w-6 h-6 text-white" />}
